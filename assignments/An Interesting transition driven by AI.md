@@ -2,6 +2,10 @@
 
 Area: Industry (Self-driving mobility/Demand forecasting) Baekeun Park
 
+:o2: filenames should not have spaces
+
+:o2: Refernces missing
+
 parkbae@iu.edu
 
 The AI-Driven transition is an indispensable phenomenon in an
