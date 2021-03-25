@@ -81,3 +81,9 @@ More precise demand forecasting will lead to optimized operational
 improvements in LNG introduction/transportation/storage/supply, which
 can eventually affect raw material costs and introductory incidental
 costs, so economic effects can be expected.
+
+## Reference
+
+[^1]: https://www.kogas.or.kr:9450/portal/index.do
+
+[^2]: https://www.kiro.re.kr/dev/nintro.asp
