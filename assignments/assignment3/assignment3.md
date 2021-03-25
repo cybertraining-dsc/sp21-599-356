@@ -2,7 +2,7 @@
 
 Area: Industry (Self-driving mobility/Demand forecasting) Baekeun Park
 
-:o2: references are missing
+:o2: references are missing as they are not used
 
 :o2: spaces after numbered sections inconsistant
 
