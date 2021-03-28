@@ -2,13 +2,7 @@
 
 Area: Industry (Self-driving mobility/Demand forecasting) 
 
-<<<<<<< HEAD
 Author: Baekeun Park
-=======
-:o2: references are missing as they are not used
-
-:o2: spaces after numbered sections inconsistant
->>>>>>> 20a858e0ebe66f6e0ad71b2aab851ff31c86fe1c
 
 :oe: references are missing
 
@@ -98,8 +92,5 @@ costs, so economic effects can be expected.
 
 [^3]: Online Resource https://www.kogas.or.kr:9450/portal/contents.do?key=2024
 
-<<<<<<< HEAD
 [^4]: Online Resource https://www.kogas.or.kr:9450/portal/contents.do?key=2014
-=======
-[^2]: https://www.kiro.re.kr/dev/nintro.asp
->>>>>>> 20a858e0ebe66f6e0ad71b2aab851ff31c86fe1c
+
