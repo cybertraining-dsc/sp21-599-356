@@ -5,7 +5,7 @@
 Status: final, Type: Project
 
 
-Gregor von Laszewski, [sp21-599-356](https://github.com/cybertraining-dsc/sp21-599-356/), [Edit](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/project.md)
+Gregor von Laszewski, [sp21-599-356](https://github.com/cybertraining-dsc/sp21-599-356/), [Edit](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/index.md)
 
 {{% pageinfo %}}
 

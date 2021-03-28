@@ -2,7 +2,13 @@
 
 Area: Industry (Self-driving mobility/Demand forecasting) 
 
+<<<<<<< HEAD
 Author: Baekeun Park
+=======
+:o2: references are missing as they are not used
+
+:o2: spaces after numbered sections inconsistant
+>>>>>>> 20a858e0ebe66f6e0ad71b2aab851ff31c86fe1c
 
 :oe: references are missing
 
@@ -38,7 +44,7 @@ of patrol twice a day and can also be expected to save costs on
 outsourcing. Besides, assuming that drones can be used, environmental
 problems with internal combustion engines can be improved.
 
-## 2.Artificial Intelligence pigging
+## 2. Artificial Intelligence pigging
 
 In-Line-Inspection pigging (ILI pigging) is a technology that runs an
 inspection "pig" in the pipeline network to conduct an abnormal
@@ -92,4 +98,8 @@ costs, so economic effects can be expected.
 
 [^3]: Online Resource https://www.kogas.or.kr:9450/portal/contents.do?key=2024
 
+<<<<<<< HEAD
 [^4]: Online Resource https://www.kogas.or.kr:9450/portal/contents.do?key=2014
+=======
+[^2]: https://www.kiro.re.kr/dev/nintro.asp
+>>>>>>> 20a858e0ebe66f6e0ad71b2aab851ff31c86fe1c
