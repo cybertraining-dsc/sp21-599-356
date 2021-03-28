@@ -1,10 +1,10 @@
 # An Interesting transition driven by AI
 
-Area: Industry (Self-driving mobility/Demand forecasting) Baekeun Park
+Area: Industry (Self-driving mobility/Demand forecasting) 
+
+Author: Baekeun Park
 
 :oe: references are missing
-
-parkbae@iu.edu
 
 The AI-Driven transition is an indispensable phenomenon in an
 industrial field. It can be said that the effects that can occur when
@@ -24,7 +24,7 @@ kilometers long. Also, there are 413 supply management stations in
 certain sections. It is patrolled twice a day by an internal
 combustion engine human-crewed vehicle to secure the above section's
 stability. It is a group of two people per team, which is performed
-through outsourcing.
+through outsourcing [^1].
 
 Such patrol duties may be performed by using autonomous vehicles or
 drones. If self- driving cars and drones are used, AI technologies
@@ -48,7 +48,7 @@ cleans the pipelines in a long and narrow tube. It generally refers to
 maintenance equipment usually inserted inside a pipe and moved by
 internal fluids as an inspection and repair equipment. Currently, it
 is operated by performing pigging using various types of pigs and then
-checking the collected data to determine whether to repair the pipes.
+checking the collected data to determine whether to repair the pipes [^2].
 Suppose multiple AI technologies such as video/signal
 recognition/analysis technology, sensor technology, communication
 technology, and robot control technology are combined. In that case,
@@ -66,7 +66,7 @@ pipeline, and retail charges consist of wholesale and retail city gas
 supply costs. LNG storage tanks at LNG acquisition bases store LNG
 during the season when city gas demand is low and replenish LNG during
 the winter when demand is higher than supply, with operating costs
-included in wholesale charges and reflected in retail charges.
+included in wholesale charges and reflected in retail charges [^3], [^4].
 Therefore, it is crucial to properly predict natural gas demand
 because it also affects natural gas charges by enhancing LNG storage
 tank operations' efficiency.
@@ -86,6 +86,10 @@ costs, so economic effects can be expected.
 
 ## Reference
 
-[^1]: https://www.kogas.or.kr:9450/portal/index.do
+[^1]: Online Resource https://www.kogas.or.kr:9450/portal/contents.do?key=1964
 
-[^2]: https://www.kiro.re.kr/dev/nintro.asp
+[^2]: Online Resource https://www.kogas.or.kr:9450/portal/contents.do?key=1981
+
+[^3]: Online Resource https://www.kogas.or.kr:9450/portal/contents.do?key=2024
+
+[^4]: Online Resource https://www.kogas.or.kr:9450/portal/contents.do?key=2014
