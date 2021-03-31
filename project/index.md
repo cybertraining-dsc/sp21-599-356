@@ -4,6 +4,11 @@
 [![Status](https://github.com/cybertraining-dsc/sp21-599-356/workflows/Status/badge.svg)](https://github.com/cybertraining-dsc/sp21-599-356/actions)
 Status: final, Type: Project
 
+* :o2: Title missing
+* :o2: Abstract should be defined by now
+* :o2: Refernces shoudl be defined by now
+* :o2: Introduction missing
+* :o2: Refernces missing
 
 Gregor von Laszewski, [sp21-599-356](https://github.com/cybertraining-dsc/sp21-599-356/), [Edit](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/index.md)
 
