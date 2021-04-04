@@ -8,7 +8,7 @@ Author: Baekeun Park
 
 South Korea relies on foreign imports for 92.8 percent of its energy resources as of the first half of 2020 [^1]. Among the energy resources, the Korea Gas Corporation imports Liquified Natural Gas(LNG) from around world and supplies it to power generation plants, gas-utility companies and city gas companies throughout the country [^2]. It produces and supplies Natural Gas(NG), in order to ensure stable gas supply for the nation. And it operates LNG storage tanks at LNG acquisition bases which can store LNG during the season when city gas demand is low and replenish LNG during winter when demand is higher than supply [^3]. 
 
-The wholesale charges consist of raw material costs (LNG introduction and incidental costs) and gas supply costs through the main gas pipeline [^4]. It menas that wholesale charges include LNG production costs(NG to LNG), LNG transportation costs, LNG storage tanks operation and maintenance costs, and NG production costs(LNG to NG). Therefore, the forecasting NG demand/supply will not only help establish an optimized mid-to-long-term plan for the introduction of LNG, but also stable NG supply and economic effects.
+The wholesale charges consist of raw material costs (LNG introduction and incidental costs) and gas supply costs [^4]. Therefore, the forecasting NG demand/supply will not only help establish an optimized mid-to-long-term plan for the introduction of LNG, but also stable NG supply and economic effects.
 
 ## Solution
 
@@ -46,4 +46,4 @@ Data preprocessing can be essential to make training data, because each data is 
 
 [^3]: Online Resource, https://www.kogas.or.kr:9450/portal/contents.do?key=2014
 
-[^4]: Online Resource, https://www.kogas.or.kr:9450/portal/contents.do?key=2024
+[^4]: Online Resource, https://www.kogas.or.kr:9450/portal/contents.do?key=2026

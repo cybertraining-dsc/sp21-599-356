@@ -10,11 +10,13 @@ Status: final, Type: Project
 * :o2: Introduction missing
 * :o2: Refernces missing
 
-Gregor von Laszewski, [sp21-599-356](https://github.com/cybertraining-dsc/sp21-599-356/), [Edit](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/index.md)
+Baekeun Park, [sp21-599-356](https://github.com/cybertraining-dsc/sp21-599-356/), [Edit](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/index.md)
 
 {{% pageinfo %}}
 
 ## Abstract
+
+The forecasting of Natural Gas(NG) supply amount in South Korea is represented. Dataset from various fields such as climate and prices of other energy resources are used as train sets through data-preprocessing, and are trained using deep-learning methods using Tensorflow. 
 
 Her comes a short abstract of the project that summarizes what it is about
 
@@ -28,7 +30,9 @@ Contents
 
 ## 1. Introduction
 
-Please not ethat an up to date version of these instructions is available at
+South Korea relies on foreign imports for 92.8 percent of its energy resources as of the first half of 2020 [^1]. Among the energy resources, the Korea Gas Corporation(KOGAS) imports Liquified Natural Gas(LNG) from around world and supplies it to power generation plants, gas-utility companies and city gas companies throughout the country [^2]. It produces and supplies Natural Gas(NG), in order to ensure stable gas supply for the nation. And it operates LNG storage tanks at LNG acquisition bases which can store LNG during the season when city gas demand is low and replenish LNG during winter when demand is higher than supply [^3]. 
+
+The wholesale charges consist of raw material costs (LNG introduction and incidental costs) and gas supply costs [^4]. Therefore, the forecasting NG demand/supply will not only help establish an optimized mid-to-long-term plan for the introduction of LNG, but also stable NG supply and economic effects.
 
 * <https://github.com/cybertraining-dsc/hid-example/blob/main/project/index.md>
 
@@ -97,8 +101,10 @@ Remember this is not a powerpoint presentation, but a report so we recommend
 
 ## 5. Datasets
 
+There is a NG supply dataset[^5] from public data portal in South Korea. It includes four years of regional monthly NG supply in South Korea (from 2016 to 2019, nine different cities). In addition, climate data[^6] for the same period can be obtained from the Korea Meteorological Administration. In the case of metropolitan cities such as Busan, the climate data for the city are used, while for areas larger than cities(e.g. Gyeonggi), the data for areas with supply stations are used. Similarly, data on the price of four types of oil[^7] and various types of coal price dataset per month[^8] are also available through corresponding agencies. Finally, the Won-Dollar exchange rate dataset with same period is used.
+
 Datasets can be huge and GitHub has limited space. Only very small datasets should be stored in GitHub.
-However, if the data is publicly available you program must contain a download function instead that you customize.
+However, if the data is publicly available you program must contain a download function instead that you customize. 
 Write it using pythons `request`. You will get point deductions if you check-in data sets that are large and do not use
 the download function.
 
@@ -119,6 +125,33 @@ Please add acknowledgments to all that contributed or helped on this project.
 Your report must include at least 6 references. Please use customary academic citation and not just URLs. As we will at 
 one point automatically change the references from superscript to square brackets it is best to introduce a space before 
 the first square bracket.
+
+[^1]: 2020 Monthly Energy Statistics, [Online resource]
+      <http://www.keei.re.kr/keei/download/MES2009.pdf>, Sep. 2020
+
+[^2]: KOGAS profile, [Online resource]
+      <https://www.kogas.or.kr:9450/eng/contents.do?key=1498>
+
+[^3]: LNG production phase, [Online resource]
+      <https://www.kogas.or.kr:9450/portal/contents.do?key=2014>
+
+[^4]: NG wholesale charges, [Online resource] 
+      <https://www.kogas.or.kr:9450/portal/contents.do?key=2026>
+
+[^5]: NG supply dataset, [Online resource], 
+      <https://www.data.go.kr/data/15049904/fileData.do>, Apr, 2020
+
+[^6]: Regional climate dataset, [Online resource]
+      <https://data.kma.go.kr/climate/RankState/selectRankStatisticsDivisionList.do?pgmNo=179>
+
+[^7]: Crude oil orice dataset, [Online resource]
+      <https://www.petronet.co.kr/main2.jsp>
+
+[^8]: Bituminous coal price dataset, [Online resource]
+      <https://www.kores.net/komis/price/mineralprice/ironoreenergy/pricetrend/baseMetals.do?mc_seq=3030003&mnrl_pc_mc_seq=506>
+
+[^9] Won-Dollar exchange rate dateset, [Online resource]
+      <http://ecos.bok.or.kr/flex/EasySearch.jsp?langGubun=K&topCode=022Y013>
 
 [^1]: Use of energy explained - Energy use in homes, [Online resource] 
       <https://www.eia.gov/energyexplained/use-of-energy/electricity-use-in-homes.php>
