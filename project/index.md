@@ -118,11 +118,9 @@ the download function.
 
 ## 4.1. Min-Max scaling
 
-In this project, all datasets are rescaled between 0 and 1 by Min-Max scaling which is one of the most common normalization methods. If there is a feature with unspecified data, The maximum value($max(x)$) of data is converted to 1, and the minimum value($min(x)$) of data is converted to 0. The other values between the maximum value and the minimum value get converted to \x'\ which can be between 0 and 1.
-\begin{equation}
-\lebel{eq:1}
+In this project, all datasets are rescaled between 0 and 1 by Min-Max scaling which is one of the most common normalization methods. If there is a feature with unspecified data, The maximum value(max(x)) of data is converted to 1, and the minimum value(min(x)) of data is converted to 0. The other values between the maximum value and the minimum value get converted to x' which can be between 0 and 1.
+<img src="https://render.githubusercontent.com/render/math?math=x'%20%3D%20%5Cfrac%7Bx-min(x)%7D%7Bmax(x)-min(x)%7D">
 $$x' = \frac{x-min(x)}{max(x)-min(x)} $$
-\end{equation}
 
 ## 4.2. Training
 
@@ -130,13 +128,16 @@ For forcasting the NG supply amount from time series dataset, MLP with LSTM netw
 
 ## 4.3. Evaluation
 
-To evaluate this network model, Mean Absolute Error(MAE) and Root Mean Squared Error(RMSE) are applied. The MAE measures the average magnitude of the errors and is presented by the formula as following, where $n$ is the number of errors, $y_i$ is the $i^th$ true value, and $\hat{y_i}$ is the predicted value.
-<div>
+To evaluate this network model, Mean Absolute Error(MAE) and Root Mean Squared Error(RMSE) are applied. The MAE measures the average magnitude of the errors and is presented by the formula as following, where n is the number of errors, y_i is the i_th true value, and <img src="https://render.githubusercontent.com/render/math?math=%5Chat%7By_i%7D"> is the i_th predicted value.
+<img src="https://render.githubusercontent.com/render/math?math=MAE%20%3D%20%5Cfrac%7B%5CSigma_%7Bi%3D1%7D%5En%7Cy_i-%5Chat%7By_i%7D%7C%7D%7Bn%7D">
 $$ MAE = \frac{\Sigma_{i=1}^n|y_i-\hat{y_i}|}{n}$$
 Also, The RMSE is used for observing the differences between real dataset and prediction values. The following is formula of RMSE and each values of this are same to them of MAE.
+<img src="https://render.githubusercontent.com/render/math?math=RMSE%20%3D%20%5Csqrt%7B%5Cfrac%7B%5CSigma_%7Bi%3D1%7D%5En(y_i-%5Chat%7By_i%7D)%5E2%7D%7Bn%7D%7D">
 $$ RMSE = \sqrt{\frac{\Sigma_{i=1}^n(y_i-\hat{y_i})^2}{n}}$$ 
 
 ## 4.4. Prediction
+
+
 
 ## 5. Result
 
