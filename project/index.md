@@ -16,9 +16,9 @@ Baekeun Park, [sp21-599-356](https://github.com/cybertraining-dsc/sp21-599-356/)
 
 ## Abstract
 
-The forecasting of Natural Gas(NG) supply amount in South Korea is represented. Dataset from various fields such as climate and prices of other energy resources are used as train sets through data-preprocessing, and are trained using deep-learning methods using Tensorflow. 
+The forecasting of Natural Gas(NG) supply amount in South Korea is represented in this project. 
 
-Her comes a short abstract of the project that summarizes what it is about
+Dataset from various fields such as climate and prices of other energy resources are used as train datasets through data-preprocessing, and are trained using deep-learning methods, especially Multi-Layer Perceptron(MLP) with Long Short Term Memory(LSTM), using Tensorflow. The test datasets are monthly 
 
 Contents
 
@@ -26,7 +26,7 @@ Contents
 
 {{% /pageinfo %}}
 
-**Keywords:** tensorflow, example. 
+**Keywords:** Natural Gas, MLP with LSTM, Tensorflow, example. 
 
 ## 1. Introduction
 
@@ -34,9 +34,15 @@ South Korea relies on foreign imports for 92.8 percent of its energy resources a
 
 The wholesale charges consist of raw material costs (LNG introduction and incidental costs) and gas supply costs [^4]. Therefore, the forecasting NG demand/supply will not only help establish an optimized mid-to-long-term plan for the introduction of LNG, but also stable NG supply and economic effects.
 
+
+
 * <https://github.com/cybertraining-dsc/hid-example/blob/main/project/index.md>
 
 Here comes a convincing introduction to the problem
+
+## 2. Related Work
+
+The related works are.
 
 ## 2. Report Format
 
@@ -99,7 +105,7 @@ Remember this is not a powerpoint presentation, but a report so we recommend
 1. Use itemized or enumeration lists sparingly
 2. When using bulleted lists use * and not - 
 
-## 5. Datasets
+## 3. Datasets
 
 There is a NG supply dataset[^5] from public data portal in South Korea. It includes four years of regional monthly NG supply in South Korea (from 2016 to 2019, nine different cities). In addition, climate data[^6] for the same period can be obtained from the Korea Meteorological Administration. In the case of metropolitan cities such as Busan, the climate data for the city are used, while for areas larger than cities(e.g. Gyeonggi), the data for areas with supply stations are used. Similarly, data on the price of four types of oil[^7] and various types of coal price dataset per month[^8] are also available through corresponding agencies. Finally, the Won-Dollar exchange rate dataset with same period is used.
 
@@ -108,11 +114,33 @@ However, if the data is publicly available you program must contain a download f
 Write it using pythons `request`. You will get point deductions if you check-in data sets that are large and do not use
 the download function.
 
+## 4. Method
+
+## 4.1. Min-Max scaling
+
+In this project, all datasets are rescaled between 0 and 1 by Min-Max scaling which is one of the most common normalization methods. If there is a feature with unspecified data, The maximum value($max(x)$) of data is converted to 1, and the minimum value($min(x)$) of data is converted to 0. The other values between the maximum value and the minimum value get converted to $x'$ which can be between 0 and 1.
+$$x' = \frac{x-min(x)}{max(x)-min(x)} $$
+
+## 4.2. Training
+
+For forcasting the NG supply amount from time series dataset, MLP with LSTM network model is designed by using tensorflow. The first and second layer of LSTM has 100 units, and total 3 layers of MLP follow it. Each MLP layers has 100 neurons instead of the final layer where its neuron is 1. In addition, dropout was designated to prevent overfitting of data, Adam is used as an optimizer, and Rectified Linear Unit(Relu) as an activation function.
+
+## 4.3. Evaluation
+
+To evaluate this network model, Mean Absolute Error(MAE) and Root Mean Squared Error(RMSE) are applied. The MAE measures the average magnitude of the errors and is presented by the formula as following, where $n$ is the number of errors, $y_i$ is the $i^th$ true value, and $\hat{y_i}$ is the predicted value.
+$$ MAE = \frac{\Sigma_{i=1}^n|y_i-\hat{y_i}|}{n}$$
+Also, The RMSE is used for observing the differences between real dataset and prediction values. The following is formula of RMSE and each values of this are same to them of MAE.
+$$ RMSE = \sqrt{\frac{\Sigma_{i=1}^n(y_i-\hat{y_i})^2}{n}}$$ 
+
+## 4.4. Prediction
+
+## 5. Result
+
 ## 6. Benchmark
 
 Your project must include a benchmark. The easiest is to use cloudmesh-common [^2]
  
-## 6. Conclusion
+## 7. Conclusion
 
 A convincing but not fake conclusion should summarize what the conclusion of the project is.
 
