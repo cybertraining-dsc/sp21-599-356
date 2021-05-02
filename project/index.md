@@ -107,7 +107,7 @@ Remember this is not a powerpoint presentation, but a report so we recommend
 
 ## 3. Datasets
 
-There is a NG supply dataset[^5] from public data portal in South Korea. It includes four years of regional monthly NG supply in South Korea (from 2016 to 2019, nine different cities). In addition, climate data[^6] for the same period can be obtained from the Korea Meteorological Administration. In the case of metropolitan cities such as Busan, the climate data for the city are used, while for areas larger than cities(e.g. Gyeonggi), the data for areas with supply stations are used. Similarly, data on the price of four types of oil[^7] and various types of coal price dataset per month[^8] are also available through corresponding agencies. Finally, the Won-Dollar exchange rate dataset with same period is used.
+There is an NG supply dataset[^5] from a public data portal in South Korea. It includes four years from 2016 to 2019 of regional monthly NG supply in the nine different cities of South Korea. In addition, climate data[^6] for the same period can be obtained from the Korea Meteorological Administration. In the case of metropolitan cities such as Busan, the climate data for the city are used, while for areas larger than cities(e.g., Gyeonggi), the data for areas with supply stations are used. Similarly, data on the price of four types of crude oil[^7] and various types of coal price datasets per month[^8] are also available through corresponding agencies. Finally, the Won-Dollar exchange rate dataset[^9] with the same period is used.
 
 Datasets can be huge and GitHub has limited space. Only very small datasets should be stored in GitHub.
 However, if the data is publicly available you program must contain a download function instead that you customize. 
@@ -118,13 +118,13 @@ the download function.
 
 ## 4.1. Min-Max scaling
 
-In this project, all datasets are rescaled between 0 and 1 by Min-Max scaling which is one of the most common normalization methods. If there is a feature with unspecified data, The maximum value(max(x)) of data is converted to 1, and the minimum value(min(x)) of data is converted to 0. The other values between the maximum value and the minimum value get converted to x' which can be between 0 and 1.
+In this project, all datasets are rescaled between 0 and 1 by Min-Max scaling, one of the most common normalization methods. If there is a feature with anonymous data, The maximum value(max(x)) of data is converted to 1, and the minimum value(min(x)) of data is converted to 0. The other values between the maximum value and the minimum value get converted to x', between 0 and 1.
 
 <img src="https://render.githubusercontent.com/render/math?math=x'%20%3D%20%5Cfrac%7Bx-min(x)%7D%7Bmax(x)-min(x)%7D">
 
 ## 4.2. Training
 
-For forcasting the NG supply amount from time series dataset, MLP with LSTM network model is designed by using tensorflow. The first and second layer of LSTM has 100 units, and total 3 layers of MLP follow it. Each MLP layers has 100 neurons instead of the final layer where its neuron is 1. In addition, dropout was designated to prevent overfitting of data, Adam is used as an optimizer, and Rectified Linear Unit(Relu) as an activation function.
+For forecasting the NG supply amount from the time series dataset, MLP with LSTM network model is designed by using Tensorflow. The first and second LSTM layers have 100 units, and a total of 3 layers of MLP follow it. Each MLP layer has 100 neurons instead of the final layer, where its neuron is 1. In addition, dropout was designated to prevent overfitting of data, Adam is used as an optimizer, and Rectified Linear Unit(Relu) as an activation function.
 
 ## 4.3. Evaluation
 
@@ -132,13 +132,13 @@ To evaluate this network model, Mean Absolute Error(MAE) and Root Mean Squared E
 
 <img src="https://render.githubusercontent.com/render/math?math=MAE%20%3D%20%5Cfrac%7B%5CSigma_%7Bi%3D1%7D%5En%7Cy_i-%5Chat%7By_i%7D%7C%7D%7Bn%7D">
 
-Also, The RMSE is used for observing the differences between real dataset and prediction values. The following is formula of RMSE and each values of this are same to them of MAE.
+Also, The RMSE is used for observing the differences between the real dataset and prediction values. The following is the formula of RMSE, and each value of this is same for MAE.
 
 <img src="https://render.githubusercontent.com/render/math?math=RMSE%20%3D%20%5Csqrt%7B%5Cfrac%7B%5CSigma_%7Bi%3D1%7D%5En(y_i-%5Chat%7By_i%7D)%5E2%7D%7Bn%7D%7D">
 
 ## 4.4. Prediction
 
-
+Since the datasets used for the training are normalized between 0 and 1, they get converted to a range of the ground truth values. From these rescaled datasets, it is possible to obtain the RMSE and compare the differences between a actual value and a predicted value.
 
 ## 5. Result
 
