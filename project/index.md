@@ -118,8 +118,11 @@ the download function.
 
 ## 4.1. Min-Max scaling
 
-In this project, all datasets are rescaled between 0 and 1 by Min-Max scaling which is one of the most common normalization methods. If there is a feature with unspecified data, The maximum value($max(x)$) of data is converted to 1, and the minimum value($min(x)$) of data is converted to 0. The other values between the maximum value and the minimum value get converted to $x'$ which can be between 0 and 1.
+In this project, all datasets are rescaled between 0 and 1 by Min-Max scaling which is one of the most common normalization methods. If there is a feature with unspecified data, The maximum value($max(x)$) of data is converted to 1, and the minimum value($min(x)$) of data is converted to 0. The other values between the maximum value and the minimum value get converted to \x'\ which can be between 0 and 1.
+\begin{equation}
+\lebel{eq:1}
 $$x' = \frac{x-min(x)}{max(x)-min(x)} $$
+\end{equation}
 
 ## 4.2. Training
 
@@ -128,6 +131,7 @@ For forcasting the NG supply amount from time series dataset, MLP with LSTM netw
 ## 4.3. Evaluation
 
 To evaluate this network model, Mean Absolute Error(MAE) and Root Mean Squared Error(RMSE) are applied. The MAE measures the average magnitude of the errors and is presented by the formula as following, where $n$ is the number of errors, $y_i$ is the $i^th$ true value, and $\hat{y_i}$ is the predicted value.
+<div>
 $$ MAE = \frac{\Sigma_{i=1}^n|y_i-\hat{y_i}|}{n}$$
 Also, The RMSE is used for observing the differences between real dataset and prediction values. The following is formula of RMSE and each values of this are same to them of MAE.
 $$ RMSE = \sqrt{\frac{\Sigma_{i=1}^n(y_i-\hat{y_i})^2}{n}}$$ 
