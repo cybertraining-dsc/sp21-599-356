@@ -143,33 +143,75 @@ Since the datasets used for the training are normalized between 0 and 1, they ge
 
 ## 5. Result
 
-In all scenarios, main variables such as dropout, learning rate and epochs starts under the same conditions and are 0.1, 0.0005, and 100 in order. These variables are adjusted according to the circumstances and comprehensively compared at the end of this part. 
+In all scenarios, main variables such as dropout, learning rate and epochs are fixed under the same conditions and are 0.1, 0.0005, and 100 in order. Each scenario shows individual results and is comprehensively compared at the end of this part. 
 
 ## 5.1 Scenario one(regional dataset)
 
 The final MAE of train set is around 0.05 and the one of test set is around 0.19. The RMSE between real data and predicted data is around 227018. The predictive graph tends to deviate a lot at the beginning of epochs, but it shows quite a bit of agreement at the end of epochs.
 
-![Figure 2](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/images/Error_For_SenarioOne.png)(https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/images/Prediction_for_SenarioOne.png)
+![Figure 2](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/images/Error_For_SenarioOne.png)
 
-**Figure 2:** Loss, prediction results for scenario one
+**Figure 2:** Loss for scenario one
+
+![Figure 3](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/images/Prediction_for_SenarioOne.png)
+
+**Figure 3:** Prediction results for scenario one
 
 ## 5.2 Scenario two(regional climate dataset)
 
 The final MAE of train set is around 0.10 and the one of test set is around 0.14. The RMSE between real data and predicted data is around 185205. Although the predictive graph still differ compared to real graph, it shows similar trends in shape.
 
+![Figure 4](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/images/Error_For_SenarioTwo.png)
+
+**Figure 4:** Loss for scenario two
+
+![Figure 5](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/images/Prediction_for_SenarioTwo.png)
+
+**Figure 5:** Prediction results for scenario two
+
 ## 5.3 Scenario three(regional temperature dataset)
 
 The final MAE of train set is around 0.13 and the one of test set is around 0.14. The RMSE between real data and predicted data is around 207585. While the tendency to follow high and low seems similar, but changes in the middle seem to be misleading.
+
+![Figure 6](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/images/Error_For_SenarioThree.png)
+
+**Figure 6:** Loss for scenario three
+
+![Figure 7](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/images/Prediction_for_SenarioThree.png)
+
+**Figure 7:** Prediction results for scenario three
 
 ## 5.4 Scenario four(applying timesteps)
 
 The final MAE of train set is around 0.06 and the one of test set is around 0.30. The RMSE between real data and predicted data is around 340843. Out of all scenarios, the predictive graph shows to have the most differences. However, in the last part, there is a somewhat similar tendency.
 
+![Figure 8](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/images/Error_For_SenarioFour.png)
+
+**Figure 8:** Loss for scenario four
+
+![Figure 9](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/images/Prediction_for_SenarioFour.png)
+
+**Figure 9:** Prediction results for scenario four
+
 ## 5.5 Scenario five(national dataset)
 
 The final MAE of train set is around 0.03 and the one of test set is around 0.14. The RMSE between real data and predicted data is around 587340. the largest RMSE value is the result, but direct comparisons are not possible because the baseline volume is different from other scenarios. Although the predictive graph shows differences, it tends to be similar to the results in the scenario two. 
 
+![Figure 10](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/images/Error_For_SenarioFive.png)
+
+**Figure 10:** Loss for scenario five
+
+![Figure 11](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/images/Prediction_for_SenarioFive.png)
+
+**Figure 11:** Prediction results for scenario five
+
 ## 5.6 Overall
+
+comparision
+
+![Figure 12](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/images/compared_prediction.png)
+
+**Figure 12:** Total prediction results
 
 ## 6. Benchmark
 
