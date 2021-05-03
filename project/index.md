@@ -52,6 +52,10 @@ As mentioned above, each dataset has monthly information. It is regionally separ
 
 The dataset is applied differently for each scenario. In the scenario one, all dataset such as crude oil price, coal price, exchange rate, and regional temperature and precipitation are merged with regional dataset, especially seoul city. For the scenario two, all climate dataset are used with regional dataset. Only temperature dataset is utilized with regional dataset in the scenario three. In addition, in the scenario four, all cases are the same as in the scenario one, but the timesteps are changed to two months. Finally, national dataset is used for the scenario five. 
 
+![Figure 1](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/each_factors.png)
+
+**Figure 1:** External factors affecting natural gas
+
 ## 4. Methodology
 
 ## 4.1. Min-Max scaling
@@ -64,9 +68,9 @@ In this project, all datasets are rescaled between 0 and 1 by Min-Max scaling, o
 
 For forecasting the NG supply amount from the time series dataset, MLP with LSTM network model is designed by using Tensorflow. The first and second LSTM layers have 100 units, and a total of 3 layers of MLP follow it. Each MLP layer has 100 neurons instead of the final layer, where its neuron is 1. In addition, dropout was designated to prevent overfitting of data, Adam is used as an optimizer, and Rectified Linear Unit(Relu) as an activation function.
 
-![Figure 1](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/structure_of_network.png)
+![Figure 2](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/structure_of_network.png)
 
-**Figure 1:** Structure of network model
+**Figure 2:** Structure of network model
 
 ## 4.3. Evaluation
 
@@ -90,77 +94,77 @@ In all scenarios, main variables such as dropout, learning rate, and epochs are 
 
 The final MAE of train set is around 0.05 and the one of test set is around 0.19. The RMSE between real data and predicted data is around 227018. The predictive graph tends to deviate a lot at the beginning of epochs, but it shows quite a bit of agreement at the end of epochs.
 
-![Figure 2](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Error_For_SenarioOne.png)
+![Figure 3](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Error_For_SenarioOne.png)
 
-**Figure 2:** Loss for scenario one
+**Figure 3:** Loss for scenario one
 
-![Figure 3](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Prediction_for_SenarioOne.png)
+![Figure 4](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Prediction_for_SenarioOne.png)
 
-**Figure 3:** Prediction results for scenario one
+**Figure 4:** Prediction results for scenario one
 
 ## 5.2 Scenario two(regional climate dataset)
 
 The final MAE of train set is around 0.10 and the one of test set is around 0.14. The RMSE between real data and predicted data is around 185205. Although the predictive graph still differ compared to real graph, it shows similar trends in shape.
 
-![Figure 4](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Error_For_SenarioTwo.png)
+![Figure 5](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Error_For_SenarioTwo.png)
 
-**Figure 4:** Loss for scenario two
+**Figure 5:** Loss for scenario two
 
-![Figure 5](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Prediction_for_SenarioTwo.png)
+![Figure 6](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Prediction_for_SenarioTwo.png)
 
-**Figure 5:** Prediction results for scenario two
+**Figure 6:** Prediction results for scenario two
 
 ## 5.3 Scenario three(regional temperature dataset)
 
 The final MAE of train set is around 0.13 and the one of test set is around 0.14. The RMSE between real data and predicted data is around 207585. While the tendency to follow high and low seems similar, but changes in the middle seem to be misleading.
 
-![Figure 6](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Error_For_SenarioThree.png)
+![Figure 7](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Error_For_SenarioThree.png)
 
-**Figure 6:** Loss for scenario three
+**Figure 7:** Loss for scenario three
 
-![Figure 7](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Prediction_for_SenarioThree.png)
+![Figure 8](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Prediction_for_SenarioThree.png)
 
-**Figure 7:** Prediction results for scenario three
+**Figure 8:** Prediction results for scenario three
 
 ## 5.4 Scenario four(applying timesteps)
 
 The final MAE of train set is around 0.06 and the one of test set is around 0.30. The RMSE between real data and predicted data is around 340843. Out of all scenarios, the predictive graph shows to have the most differences. However, in the last part, there is a somewhat similar tendency.
 
-![Figure 8](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Error_For_SenarioFour.png)
+![Figure 9](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Error_For_SenarioFour.png)
 
-**Figure 8:** Loss for scenario four
+**Figure 9:** Loss for scenario four
 
-![Figure 9](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Prediction_for_SenarioFour.png)
+![Figure 10](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Prediction_for_SenarioFour.png)
 
-**Figure 9:** Prediction results for scenario four
+**Figure 10:** Prediction results for scenario four
 
 ## 5.5 Scenario five(national dataset)
 
 The final MAE of train set is around 0.03 and the one of test set is around 0.14. The RMSE between real data and predicted data is around 587340. the largest RMSE value is the result, but direct comparisons are not possible because the baseline volume is different from other scenarios. Although the predictive graph shows differences, it tends to be similar to the results in the scenario two. 
 
-![Figure 10](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Error_For_SenarioFive.png)
+![Figure 11](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Error_For_SenarioFive.png)
 
-**Figure 10:** Loss for scenario five
+**Figure 11:** Loss for scenario five
 
-![Figure 11](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Prediction_for_SenarioFive.png)
+![Figure 12](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Prediction_for_SenarioFive.png)
 
-**Figure 11:** Prediction results for scenario five
+**Figure 12:** Prediction results for scenario five
 
 ## 5.6 Overall results
 
 Out of the five scenarios in total, the second and third have smaller RMSE, and the graphs also show relatively similar results. The first and fourth show differences in the beginning and similar trends in the last part. However, it is noteworthy that the gap at the beginning of them is very large, but it tends to shrink together at the point of decline and stretch together at the point of increase.
 
-![Figure 12](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/compared_prediction.png)
+![Figure 13](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/compared_prediction.png)
 
-**Figure 12:** Total prediction results
+**Figure 13:** Total prediction results
 
 ## 6. Benchmarks
 
 For a benchmark, the Cloudmesh StopWatch and Benchmark [^15] are used to measure the performance of the program. The time spent on data load, data preprocessing, network model compile, training, and prediction was separately measured, and the overall time for execution of all scenarios is around 77 seconds. It can be seen that The training time for the fourth scenario is the longest and the one for the fifth scenario is the shortest.
 
-![Figure 13](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/benchmark_all.PNG)
+![Figure 14](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/benchmark_all.PNG)
 
-**Figure 13:** Benchmarks
+**Figure 14:** Benchmarks
 
 ## 7. Conclusion
 
