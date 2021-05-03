@@ -207,7 +207,7 @@ The final MAE of train set is around 0.03 and the one of test set is around 0.14
 
 ## 5.6 Overall
 
-comparision
+To do: comparision
 
 ![Figure 12](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/images/compared_prediction.png)
 
