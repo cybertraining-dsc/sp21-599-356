@@ -16,7 +16,7 @@ Baekeun Park, [sp21-599-356](https://github.com/cybertraining-dsc/sp21-599-356/)
 
 ## Abstract
 
-In this project, the Natural Gas(NG) supply amount of South Korea, which relies on imports for much of its energy sources, is forecasted using deep learning methods. Datasets from various fields such as weather and prices of other energy resources are used as training datasets through data-preprocessing and are trained using the multi-layer perceptron(MLP) with long short-term memory(LSTM), using Tensorflow. In addition, a combination of the dataset from various factors is used for training scenario-wise, and the results are compared and analyzed.
+Natural Gas(NG) is one of the valuable ones among the other energy resources. It is used as a power source for industries, homes and businesses, and heating and cooling energy sources. It is also used as a raw material for power plants to generate electricity. Therefore, diverse purposes of NG demand arise in the different fields. In this project, the NG supply amount of South Korea, which relies on imports for much of its energy sources, is forecasted by using deep learning methods. Datasets from various fields such as weather and prices of other energy resources are used as training datasets through data-preprocessing and are trained using the multi-layer perceptron(MLP) with long short-term memory(LSTM), using Tensorflow. In addition, a combination of the dataset from various factors is used for training scenario-wise, and the results are compared and analyzed.
 
 Contents
 
@@ -24,7 +24,7 @@ Contents
 
 {{% /pageinfo %}}
 
-**Keywords:** Natural Gas, forecasting, MLP with LSTM, Tensorflow, various dataset.
+**Keywords:** Natural Gas, supply, forecasting, South Korea, MLP with LSTM, Tensorflow, various dataset.
 
 ## 1. Introduction
 
@@ -42,7 +42,7 @@ Khotanzad and Elragal (1999) proposed a two-stage system with the first stage co
 
 ## 3. Datasets
 
-As described above, weather datasets like temperature and precipitation, price datasets of other energy resources like crude oil and coal, and economic indicators like exchange rate are used in this project for forecasting NG demand.
+As described, weather datasets like temperature and precipitation, price datasets of other energy resources like crude oil and coal, and economic indicators like exchange rate are used in this project for forecasting NG demand.
 
 There is an NG supply dataset [^10] from a public data portal in South Korea. It includes four years from 2016 to 2019 of regional monthly NG supply in the nine different cities of South Korea. In addition, climate data such as temperature and precipitation [^11] for the same period can be obtained from the Korea Meteorological Administration. Similarly, data on the price of four types of crude oil [^12] and various types of coal price datasets per month [^13] are also available through corresponding agencies. Finally, the Won-Dollar exchange rate dataset [^14] with the same period is used.
 
@@ -60,7 +60,7 @@ The dataset is applied differently for each scenario. In the scenario one, all d
 
 In this project, all datasets are rescaled between 0 and 1 by Min-Max scaling, one of the most common normalization methods. If there is a feature with anonymous data, The maximum value(max(x)) of data is converted to 1, and the minimum value(min(x)) of data is converted to 0. The other values between the maximum value and the minimum value get converted to x', between 0 and 1.
 
-<img src="https://render.githubusercontent.com/render/math?math=%5CLarge%20%5Cfrac%7Bx-min(x)%7D%7Bmax(x)-min(x)%7D">
+<img src="https://render.githubusercontent.com/render/math?math=%5CLarge%20x'%20%3D%20%5Cfrac%7Bx-min(x)%7D%7Bmax(x)-min(x)%7D">
 
 ## 4.2. Training
 
@@ -82,7 +82,7 @@ Also, The RMSE is used for observing the differences between the real dataset an
 
 ## 4.4. Prediction
 
-Since the datasets used for the training are normalized between 0 and 1, they get converted to a range of the ground truth values. From these rescaled datasets, it is possible to obtain the RMSE and compare the differences between a actual value and a predicted value.
+Since the datasets used for the training are normalized between 0 and 1, they get converted again to a range of the ground truth values. From these rescaled datasets, it is possible to obtain the RMSE and compare the differences between a actual value and a predicted value.
 
 ## 5. Result
 
@@ -90,7 +90,7 @@ In all scenarios, main variables such as dropout, learning rate, and epochs are 
 
 ## 5.1 Scenario one(regional dataset)
 
-The final MAE of train set is around 0.05 and the one of test set is around 0.19. Also, the RMSE between real data and predicted data is around 227018. The predictive graph tends to deviate a lot at the beginning of epochs, but it shows quite a bit of agreement at the end of epochs.
+The final MAE of train set is around 0.05 and the one of test set is around 0.19. Also, the RMSE between real data and predicted data is around 227018. The predictive graph tends to deviate a lot at the beginning, but it shows a relatively similar shape at the end of the graph.
 
 ![Figure 3](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Error_For_SenarioOne.png)
 
@@ -102,7 +102,7 @@ The final MAE of train set is around 0.05 and the one of test set is around 0.19
 
 ## 5.2 Scenario two(regional climate dataset)
 
-The final MAE of train set is around 0.10 and the one of test set is around 0.14. Also, the RMSE between real data and predicted data is around 185205. Although the predictive graph still differ compared to real graph, it shows similar trends in shape.
+The final MAE of train set is around 0.10 and the one of test set is around 0.14. Also, the RMSE between real data and predicted data is around 185205. Although the predictive graph still differ compared to real graph, it shows analogous trends in shape.
 
 ![Figure 5](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Error_For_SenarioTwo.png)
 
@@ -126,7 +126,7 @@ The final MAE of train set is around 0.13 and the one of test set is around 0.14
 
 ## 5.4 Scenario four(applying timesteps)
 
-The final MAE of train set is around 0.06 and the one of test set is around 0.30. Also, the RMSE between real data and predicted data is around 340843. Out of all scenarios, the predictive graph shows to have the most differences. However, in the last part, there is a somewhat similar tendency.
+The final MAE of train set is around 0.06 and the one of test set is around 0.30. Also, the RMSE between real data and predicted data is around 340843. Out of all scenarios, the predictive graph shows to have the most differences. However, in the last part, there is a somewhat akin tendency.
 
 ![Figure 9](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Error_For_SenarioFour.png)
 
@@ -138,7 +138,7 @@ The final MAE of train set is around 0.06 and the one of test set is around 0.30
 
 ## 5.5 Scenario five(national dataset)
 
-The final MAE of train set is around 0.03 and the one of test set is around 0.14. Also, the RMSE between real data and predicted data is around 587340. the largest RMSE value is the result, but direct comparisons are not possible because the baseline volume is different from other scenarios. Although the predictive graph shows differences, it tends to be similar to the results in the scenario two.
+The final MAE of train set is around 0.03 and the one of test set is around 0.14. Also, the RMSE between real data and predicted data is around 587340. the largest RMSE value is the result, but direct comparisons are not possible because the baseline volume is different from other scenarios. Although the predictive graph shows discrepancy, it tends to be similar to the results in the scenario two.
 
 ![Figure 11](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Error_For_SenarioFive.png)
 
