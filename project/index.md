@@ -123,6 +123,10 @@ In this project, all datasets are rescaled between 0 and 1 by Min-Max scaling, o
 
 For forecasting the NG supply amount from the time series dataset, MLP with LSTM network model is designed by using Tensorflow. The first and second LSTM layers have 100 units, and a total of 3 layers of MLP follow it. Each MLP layer has 100 neurons instead of the final layer, where its neuron is 1. In addition, dropout was designated to prevent overfitting of data, Adam is used as an optimizer, and Rectified Linear Unit(Relu) as an activation function.
 
+![Figure 1](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/images/structure_of_network.png)
+
+**Figure 1:** Structure of network model
+
 ## 4.3. Evaluation
 
 To evaluate this network model, Mean Absolute Error(MAE) and Root Mean Squared Error(RMSE) are applied. The MAE measures the average magnitude of the errors and is presented by the formula as following, where n is the number of errors, <img src="https://render.githubusercontent.com/render/math?math=y_i"> is the <img src="https://render.githubusercontent.com/render/math?math=i%5E%7Bth%7D"> true value, and <img src="https://render.githubusercontent.com/render/math?math=%5Chat%7By_i%7D"> is the <img src="https://render.githubusercontent.com/render/math?math=i%5E%7Bth%7D"> predicted value.
@@ -145,6 +149,10 @@ In all scenarios, main variables such as dropout, learning rate and epochs start
 
 The final MAE of train set is around 0.05 and the one of test set is around 0.19. The RMSE between real data and predicted data is around 227018. The predictive graph tends to deviate a lot at the beginning of epochs, but it shows quite a bit of agreement at the end of epochs.
 
+![Figure 2](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/images/Error_For_SenarioOne.png)(https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/images/Prediction_for_SenarioOne.png)
+
+**Figure 2:** Loss, prediction results for scenario one
+
 ## 5.2 Scenario two(regional climate dataset)
 
 The final MAE of train set is around 0.10 and the one of test set is around 0.14. The RMSE between real data and predicted data is around 185205. Although the predictive graph still differ compared to real graph, it shows similar trends in shape.
@@ -162,8 +170,6 @@ The final MAE of train set is around 0.06 and the one of test set is around 0.30
 The final MAE of train set is around 0.03 and the one of test set is around 0.14. The RMSE between real data and predicted data is around 587340. the largest RMSE value is the result, but direct comparisons are not possible because the baseline volume is different from other scenarios. Although the predictive graph shows differences, it tends to be similar to the results in the scenario two. 
 
 ## 5.6 Overall
-
-
 
 ## 6. Benchmark
 
