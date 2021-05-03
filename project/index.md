@@ -46,7 +46,7 @@ As described above, weather datasets like temperature and precipitation, price d
 
 There is an NG supply dataset [^10] from a public data portal in South Korea. It includes four years from 2016 to 2019 of regional monthly NG supply in the nine different cities of South Korea. In addition, climate data such as temperature and precipitation [^11] for the same period can be obtained from the Korea Meteorological Administration. Similarly, data on the price of four types of crude oil [^12] and various types of coal price datasets per month [^13] are also available through corresponding agencies. Finally, the Won-Dollar exchange rate dataset [^14] with the same period is used.
 
-As mentioned above, each dataset has monthly information. It is regionally separated or combined according to the test scenario. For example, the NG supply dataset has nine different cities. One column of cities is split from the original dataset and merged with another regional dataset like temperature or precipitation. On the other hand, in the case of the test scenario, where a national dataset is needed, the summation value of all column data is created and used for it.
+As mentioned above, each dataset has monthly information. It is regionally separated or combined according to the test scenario. For example, the NG supply dataset has nine different cities. One column of cities is split from the original dataset and merged with another regional dataset like temperature or precipitation. On the other hand, in the case of the scenario, where a national dataset is needed, the summation value of all column data is created and used for it.
 
 The dataset is applied differently for each scenario. In the scenario one, all dataset such as crude oil price, coal price, exchange rate, and regional temperature and precipitation are merged with regional dataset, especially seoul city. For the scenario two, all climate dataset are used with regional dataset. Only temperature dataset is utilized with regional dataset in the scenario three. In addition, in the scenario four, all cases are the same as in the scenario one, but the timesteps are changed to two months. Finally, national dataset is used for the scenario five.
 
@@ -90,7 +90,7 @@ In all scenarios, main variables such as dropout, learning rate, and epochs are 
 
 ## 5.1 Scenario one(regional dataset)
 
-The final MAE of train set is around 0.05 and the one of test set is around 0.19. The RMSE between real data and predicted data is around 227018. The predictive graph tends to deviate a lot at the beginning of epochs, but it shows quite a bit of agreement at the end of epochs.
+The final MAE of train set is around 0.05 and the one of test set is around 0.19. Also, the RMSE between real data and predicted data is around 227018. The predictive graph tends to deviate a lot at the beginning of epochs, but it shows quite a bit of agreement at the end of epochs.
 
 ![Figure 3](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Error_For_SenarioOne.png)
 
@@ -102,7 +102,7 @@ The final MAE of train set is around 0.05 and the one of test set is around 0.19
 
 ## 5.2 Scenario two(regional climate dataset)
 
-The final MAE of train set is around 0.10 and the one of test set is around 0.14. The RMSE between real data and predicted data is around 185205. Although the predictive graph still differ compared to real graph, it shows similar trends in shape.
+The final MAE of train set is around 0.10 and the one of test set is around 0.14. Also, the RMSE between real data and predicted data is around 185205. Although the predictive graph still differ compared to real graph, it shows similar trends in shape.
 
 ![Figure 5](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Error_For_SenarioTwo.png)
 
@@ -114,7 +114,7 @@ The final MAE of train set is around 0.10 and the one of test set is around 0.14
 
 ## 5.3 Scenario three(regional temperature dataset)
 
-The final MAE of train set is around 0.13 and the one of test set is around 0.14. The RMSE between real data and predicted data is around 207585. While the tendency to follow high and low seems similar, but changes in the middle seem to be misleading.
+The final MAE of train set is around 0.13 and the one of test set is around 0.14. Also, the RMSE between real data and predicted data is around 207585. While the tendency to follow high and low seems similar, but changes in the middle seem to be misleading.
 
 ![Figure 7](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Error_For_SenarioThree.png)
 
@@ -126,7 +126,7 @@ The final MAE of train set is around 0.13 and the one of test set is around 0.14
 
 ## 5.4 Scenario four(applying timesteps)
 
-The final MAE of train set is around 0.06 and the one of test set is around 0.30. The RMSE between real data and predicted data is around 340843. Out of all scenarios, the predictive graph shows to have the most differences. However, in the last part, there is a somewhat similar tendency.
+The final MAE of train set is around 0.06 and the one of test set is around 0.30. Also, the RMSE between real data and predicted data is around 340843. Out of all scenarios, the predictive graph shows to have the most differences. However, in the last part, there is a somewhat similar tendency.
 
 ![Figure 9](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Error_For_SenarioFour.png)
 
@@ -138,7 +138,7 @@ The final MAE of train set is around 0.06 and the one of test set is around 0.30
 
 ## 5.5 Scenario five(national dataset)
 
-The final MAE of train set is around 0.03 and the one of test set is around 0.14. The RMSE between real data and predicted data is around 587340. the largest RMSE value is the result, but direct comparisons are not possible because the baseline volume is different from other scenarios. Although the predictive graph shows differences, it tends to be similar to the results in the scenario two.
+The final MAE of train set is around 0.03 and the one of test set is around 0.14. Also, the RMSE between real data and predicted data is around 587340. the largest RMSE value is the result, but direct comparisons are not possible because the baseline volume is different from other scenarios. Although the predictive graph shows differences, it tends to be similar to the results in the scenario two.
 
 ![Figure 11](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Error_For_SenarioFive.png)
 
@@ -150,29 +150,40 @@ The final MAE of train set is around 0.03 and the one of test set is around 0.14
 
 ## 5.6 Overall results
 
-Out of the five scenarios in total, the second and third have smaller RMSE, and the graphs also show relatively similar results. The first and fourth show differences in the beginning and similar trends in the last part. However, it is noteworthy that the gap at the beginning of them is very large, but it tends to shrink together at the point of decline and stretch together at the point of increase.
+Out of the five scenarios in total, the second and third have smaller RMSE than others, and the graphs also show relatively similar results. The first and fourth show differences in the beginning and similar trends in the last part. However, it is noteworthy that the gap at the beginning of them is very large, but it tends to shrink together at the point of decline and stretch together at the point of increase.
+
+In the first and fifth scenarios, all data are identical except that they differ in regional scale in temperature and precipitation. It is also the same that 12 months of data are used as the training set. From the subtle differences in the shape of the resulting graph, it can be seen that the national average data cannot represent the situation in a particular region, and the amount of NG supply differs depending on the circumstances in the region.
 
 ![Figure 13](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/compared_prediction.png)
 
-**Figure 13:** Total prediction results
+**Figure 13:** Total prediction results: 12 months training set
+
+As the number of training data changes from 12 months to 24 months, the results are more clearly visible. The second and third prediction graphs have a more similar shape and the RMSE value decreases than the previous setting. The results of other scenarios show that the overall shape has improved; contrarily, the shape of the rapidly changing middle part is better in the previous condition.
+
+![Figure 14](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/compared_prediction_2.png)
+
+**Figure 14:** Total prediction results: 24 months training set
+
 
 ## 6. Benchmarks
 
-For a benchmark, the Cloudmesh StopWatch and Benchmark [^15] are used to measure the performance of the program. The time spent on data load, data preprocessing, network model compile, training, and prediction was separately measured, and the overall time for execution of all scenarios is around 77 seconds. It can be seen that The training time for the fourth scenario is the longest and the one for the fifth scenario is the shortest.
+For a benchmark, the Cloudmesh StopWatch and Benchmark [^15] are used to measure the program's performance. The time spent on data load, data preprocessing, network model compile, training, and prediction was separately measured, and the overall time for execution of all scenarios is around 77 seconds. It can be seen that The training time for the fourth scenario is the longest and the one for the fifth scenario is the shortest.
 
-![Figure 14](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/benchmarks.png)
+![Figure 15](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/benchmarks.png)
 
-**Figure 14:** Benchmarks
+**Figure 15:** Benchmarks
 
 ## 7. Conclusion
 
-Through this project, it can be seen that simplification of factors that have a significant impact shows better efficiency than combining various factors. Simply considering, the cold weather requires more heating, which increases the demand for NG. In addition, when there is a lot of precipitation, the weather is warm or hot, and in contrast, when it is cold, the precipitation is relatively cold. It can be seen that these seasonal elements show relatively high consistency when used as datasets, and that predictions are more effective when combined. However, the last part of the scenario used the dataset combined with various factors tends to match real data, and the results might vary if a dataset with a longer period of time is used and the ratio of training set is adjusted.
+From the results of this project, it can be seen that simplifying factors that have a significant impact shows better efficiency than combining various factors. Simply considering, the cold weather requires more heating, which increases the demand for NG. In addition, when there is a lot of precipitation, the weather is warm or hot, and in contrast, when it is cold, the precipitation is relatively cold. It can be seen that these seasonal elements show relatively high consistency when used as datasets and that predictions are more effective when combined. However, the last part of the scenario used the dataset combined with various factors tends to match real data, and the results might vary if a dataset with a longer period is used and the ratio of the training set is adjusted.
 
-In this project, forecasting NG demand and supply is carried out using external factors. As mentioned earlier, South Korea relies on imports for most of its energy resources. Market conditions may also be volatile depending on the government's energy policy direction. Therefore, efficient energy demand forecasts will have to be constantly supplemented and developed. In addition, it is believed that advanced forms of NG-related research should be conducted using various data and more professional analysis.
+As mentioned earlier, South Korea relies on imports for most of its energy resources. Also, the energy plans are being made and operated through nation-led policies, and the energy market conditions may also be volatile depending on the government's direction. Therefore, efficient energy demand forecasts will have to be constantly supplemented and developed.
+
+Forecasting NG demand and supply was carried out using various relatively easy-to-get data factors in this project. Nevertheless, the flexibility and potential of demand forecasting using state-of-the-art deep learning methods have been identified. In this respect, it is believed that advanced forms of NG-related research in South Korea should be conducted using various data and more professional analysis.
 
 ## 8. Acknowledgments
 
-The author would like to thank Dr. Gregor von Laszewski for his invaluable feedback on this paper, and Dr. Geoffrey Fox for sharing his expertise in Deep Learning and AI applications throughout this course.
+The author would like to thank Dr. Gregor von Laszewski for his invaluable feedback, continued assistance and suggestions on this paper, and Dr. Geoffrey Fox for sharing his expertise in Deep Learning and Artificial Intelligence applications throughout this Deep Learning Application: AI-First Engineering course offered in the Spring 2021 semester at Indiana University, Bloomington.
 
 ## 9. References
 
