@@ -16,17 +16,11 @@ Baekeun Park, [sp21-599-356](https://github.com/cybertraining-dsc/sp21-599-356/)
 
 ## Abstract
 
-The forecasting of Natural Gas(NG) supply amount in South Korea is represented in this project. 
-
-Dataset from various fields such as climate and prices of other energy resources are used as train datasets through data-preprocessing, and are trained using deep-learning methods, especially Multi-Layer Perceptron(MLP) with Long Short Term Memory(LSTM), using Tensorflow. The test datasets are monthly 
-
-Contents
-
-{{< table_of_contents >}}
+In this project, the Natural Gas(NG) supply amount of South Korea, which relies on imports for much of its energy sources, is forecasted using deep learning methods. Datasets from various fields such as weather and prices of other energy resources are used as training datasets through data-preprocessing and are trained using the multi-layer perceptron(MLP) with long short-term memory(LSTM), using Tensorflow. In addition, a combination of the dataset from various factors is used for training scenario-wise, and the results are compared and analyzed.
 
 {{% /pageinfo %}}
 
-**Keywords:** Natural Gas, MLP with LSTM, Tensorflow, example. 
+**Keywords:** Natural Gas, forecasting, MLP with LSTM, Tensorflow, various dataset. 
 
 ## 1. Introduction
 
