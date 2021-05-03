@@ -42,31 +42,6 @@ Explain the factors affecting gas demand: climate(temperature, precipitation), t
 
 The related works are.
 
-## 2. Report Format
-
-The report is written in (hugo) markdown and not commonmark. As such some features are not visible in GitHub. You can 
-set up hugo on your local computer if you want to see how it renders or commit and wait 10 minutes once your report is 
-bound into cybertraining.
-
-It is to be noted that markdown works best if you include an empty line before and after each context change. 
-Thus the following is wrong:
-
-```
-# This is My Headline
-This author does ignore proper markdown while not using empty lines between context changes
-1. This is because this author ignors all best practices
-```
-
-Instead, this should be 
-
-```
-# This is My Headline
-
-We do not ignore proper markdown while using empty lines between context changes
-
-1. This is because we encourage best practices to cause issues.
-```
-
 ## 2.1. GitHub Actions
 
 When going to GitHub Actions you will see a report is autmatically generated with some help on improving your markdown. 
@@ -89,12 +64,6 @@ You have two choices for the final project.
 
 YOu will be including the type of the project as a prefix to your title, as well as in the Type tag
 at the beginning of your project.
-
-## 3. Using Images
-
-![Figure 1](https://github.com/cybertraining-dsc/fa20-523-314/raw/main/project/images/chart.png)
-
-**Figure 1:** Images can be included in the report, but if they are copied you must cite them [^1].
 
 ## 4. Using itemized lists only where needed
 
@@ -143,7 +112,7 @@ Since the datasets used for the training are normalized between 0 and 1, they ge
 
 ## 5. Result
 
-In all scenarios, main variables such as dropout, learning rate and epochs are fixed under the same conditions and are 0.1, 0.0005, and 100 in order. Each scenario shows individual results and is comprehensively compared at the end of this part. 
+In all scenarios, main variables such as dropout, learning rate, and epochs are fixed under the same conditions and are 0.1, 0.0005, and 100 in order. In scenarios one, two, three, and five, the training set is applied as twelve months, and in scenario four, next month's prediction comes from the previous two months dataset. Each scenario shows individual results and is comprehensively compared at the end of this part. 
 
 ## 5.1 Scenario one(regional dataset)
 
@@ -205,31 +174,31 @@ The final MAE of train set is around 0.03 and the one of test set is around 0.14
 
 **Figure 11:** Prediction results for scenario five
 
-## 5.6 Overall
+## 5.6 Overall results
 
-To do: comparision
+Out of the five scenarios in total, the second and third have smaller RMSE, and the graphs also show relatively similar results. The first and fourth show differences in the beginning and similar trends in the last part. However, it is noteworthy that the gap at the beginning of them is very large, but it tends to shrink together at the point of decline and stretch together at the point of increase.
 
 ![Figure 12](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/compared_prediction.png)
 
 **Figure 12:** Total prediction results
 
-## 6. Benchmark
+## 6. Benchmarks
 
-Your project must include a benchmark. The easiest is to use cloudmesh-common [^2]
- 
+For a benchmark, the Cloudmesh StopWatch and Benchmark [^10] are used to measure the performance of the program. The time spent on data load, data preprocessing, network model compile, training, and prediction was separately measured, and the overall time for execution of all scenarios is around 77 seconds. It can be seen that The training time for the fourth scenario is the longest and the one for the fifth scenario is the shortest.
+
+![Figure 13](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/benchmark_all.png)
+
+**Figure 13:** Benchmarks
+
 ## 7. Conclusion
 
-A convincing but not fake conclusion should summarize what the conclusion of the project is.
+It can be seen that simplification of factors that have a significant impact shows better efficiency than combining various factors. Simply considering, the cold weather requires more heating, which increases the demand for NG. In addition, when there is a lot of precipitation, the weather is warm or hot, and in contrast, when it is cold, the precipitation is relatively cold. It can be seen that these seasonal elements show relatively high consistency when used as datasets, and that predictions are more effective when combined. However, the last part of the scenario used the dataset combined with various factors tends to match real data, and the results might vary if a dataset with a longer period of time is used and the ratio of training set is adjusted.
 
 ## 8. Acknowledgments
 
 The author would like to thank Dr. Gregor von Laszewski for his invaluable feedback on this paper, and Dr. Geoffrey Fox for sharing his expertise in Deep Learning and AI applications throughout this course.
 
 ## 9. References
-
-Your report must include at least 6 references. Please use customary academic citation and not just URLs. As we will at 
-one point automatically change the references from superscript to square brackets it is best to introduce a space before 
-the first square bracket.
 
 [^1]: 2020 Monthly Energy Statistics, [Online resource]
       <http://www.keei.re.kr/keei/download/MES2009.pdf>, Sep. 2020
@@ -258,10 +227,6 @@ the first square bracket.
 [^9] Won-Dollar exchange rate dateset, [Online resource]
       <http://ecos.bok.or.kr/flex/EasySearch.jsp?langGubun=K&topCode=022Y013>
 
-[^1]: Use of energy explained - Energy use in homes, [Online resource] 
-      <https://www.eia.gov/energyexplained/use-of-energy/electricity-use-in-homes.php>
-
-
-[^2]: Gregor von Laszewski, Cloudmesh StopWatch and Benchmark from the Cloudmesh Common Library, [GitHub] 
+[^10]: Gregor von Laszewski, Cloudmesh StopWatch and Benchmark from the Cloudmesh Common Library, [GitHub] 
       <https://github.com/cloudmesh/cloudmesh-common>
 
