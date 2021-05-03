@@ -162,7 +162,7 @@ Out of the five scenarios in total, the second and third have smaller RMSE, and 
 
 For a benchmark, the Cloudmesh StopWatch and Benchmark [^15] are used to measure the performance of the program. The time spent on data load, data preprocessing, network model compile, training, and prediction was separately measured, and the overall time for execution of all scenarios is around 77 seconds. It can be seen that The training time for the fourth scenario is the longest and the one for the fifth scenario is the shortest.
 
-![Figure 14](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/benchmark_all.PNG)
+![Figure 14](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/benchmarks.png)
 
 **Figure 14:** Benchmarks
 
