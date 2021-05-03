@@ -30,51 +30,23 @@ Contents
 
 ## 1. Introduction
 
-South Korea relies on foreign imports for 92.8 percent of its energy resources as of the first half of 2020 [^1]. Among the energy resources, the Korea Gas Corporation(KOGAS) imports Liquified Natural Gas(LNG) from around world and supplies it to power generation plants, gas-utility companies and city gas companies throughout the country [^2]. It produces and supplies Natural Gas(NG), in order to ensure stable gas supply for the nation. And it operates LNG storage tanks at LNG acquisition bases which can store LNG during the season when city gas demand is low and replenish LNG during winter when demand is higher than supply [^3]. 
+South Korea relies on foreign imports for 92.8 percent of its energy resources as of the first half of 2020 [^1]. Among the energy resources, the Korea Gas Corporation(KOGAS) imports Liquified Natural Gas(LNG) from around world and supplies it to power generation plants, gas-utility companies and city gas companies throughout the country [^2]. It produces and supplies NG, in order to ensure stable gas supply for the nation. And it operates LNG storage tanks at LNG acquisition bases which can store LNG during the season when city gas demand is low and replenish LNG during winter when demand is higher than supply [^3]. 
 
 The wholesale charges consist of raw material costs (LNG introduction and incidental costs) and gas supply costs [^4]. Therefore, the forecasting NG demand/supply will not only help establish an optimized mid-to-long-term plan for the introduction of LNG, but also stable NG supply and economic effects.
 
-Explain the factors affecting gas demand: climate(temperature, precipitation), the other energy price(crude oil, coal), exchange rate(USD)
+The factors which influence to NG demand include weather, economic conditions, and petroleum prices. The winter weather strongly influences NG demand and the hot summer weather can increase electric power demand for NG. In addition, some large-volume fuel consumers such as power plants and iron, steel, and paper mills can switch between NG, coal, and petroleum, depending on the cost of each fuel [^5].
 
-* <https://github.com/cybertraining-dsc/hid-example/blob/main/project/index.md>
+Therefore, some indicators related to weather, economic conditions and price of other energy resources can be used for this project.
 
 ## 2. Related Work
 
-The related works are.
-
-## 2.1. GitHub Actions
-
-When going to GitHub Actions you will see a report is autmatically generated with some help on improving your markdown. 
-We will not review any document that does not pass this check.
-
-## 2.2. PAst Copy from Word or other Editors is a Disaster!
-
-We recommend that you sue a proper that is integrated with GitHub or you use the commandline tools. We may include 
-comments into your document that you will have to fix, If you juys past copy you will 
-
-1. Not learn how to use GitHub properly and we deduct points
-2. Overwrite our coments that you than may miss and may result in point deductions as you have not addressed them.
-
-## 2.3. Report or Project
-
-You have two choices for the final project. 
-
-1. Project, That is a final report that includes code.
-2. Report, that is a final project without code.
-
-YOu will be including the type of the project as a prefix to your title, as well as in the Type tag
-at the beginning of your project.
-
-## 4. Using itemized lists only where needed
-
-Remember this is not a powerpoint presentation, but a report so we recommend
-
-1. Use itemized or enumeration lists sparingly
-2. When using bulleted lists use * and not - 
+Khotanzad and Elragal (1999) proposed a two-stage system with the first stage containing a combination of artificial neural network(ANN) for prediction of daily NG consumption [^6], and Khotanzad et al. (2000) combined eight different algorithms to improve the performance of forecasters [^7]. Mustafa Akpinar et al. (2016) used daily NG consumption data to forecast the NG demand by ABC-based ANN [^8]. Also, Athanasios Anagnostis et al. (2019) conducted daily NG demand prediction by a comparative analysis between ANN and LSTM [^9]. Unlike those methods, MLP with LSTM is applied for this project, and external factors affecting NG demand are changed and compared.
 
 ## 3. Datasets
 
-There is an NG supply dataset[^5] from a public data portal in South Korea. It includes four years from 2016 to 2019 of regional monthly NG supply in the nine different cities of South Korea. In addition, climate data such as temperature and precipitation[^6] for the same period can be obtained from the Korea Meteorological Administration. Similarly, data on the price of four types of crude oil[^7] and various types of coal price datasets per month[^8] are also available through corresponding agencies. Finally, the Won-Dollar exchange rate dataset[^9] with the same period is used.
+As described above, weather datasets like temperature and precipitation, price datasets of other energy resources like crude oil and coal, and economic indicators like exchange rate are used in this project for forecasting NG demand.
+
+There is an NG supply dataset [^10] from a public data portal in South Korea. It includes four years from 2016 to 2019 of regional monthly NG supply in the nine different cities of South Korea. In addition, climate data such as temperature and precipitation [^11] for the same period can be obtained from the Korea Meteorological Administration. Similarly, data on the price of four types of crude oil [^12] and various types of coal price datasets per month [^13] are also available through corresponding agencies. Finally, the Won-Dollar exchange rate dataset [^14] with the same period is used.
 
 As mentioned above, each dataset has monthly information. It is regionally separated or combined according to the test scenario. For example, the NG supply dataset has nine different cities. One column of cities is split from the original dataset and merged with another regional dataset like temperature or precipitation. On the other hand, in the case of the test scenario, where a national dataset is needed, the summation value of all column data is created and used for it.
 
@@ -86,7 +58,7 @@ The dataset is applied differently for each scenario. In the scenario one, all d
 
 In this project, all datasets are rescaled between 0 and 1 by Min-Max scaling, one of the most common normalization methods. If there is a feature with anonymous data, The maximum value(max(x)) of data is converted to 1, and the minimum value(min(x)) of data is converted to 0. The other values between the maximum value and the minimum value get converted to x', between 0 and 1.
 
-<img src="https://render.githubusercontent.com/render/math?math=x'%20%3D%20%5Cfrac%7Bx-min(x)%7D%7Bmax(x)-min(x)%7D">
+<img src="https://render.githubusercontent.com/render/math?math=%5CLarge%20%5Cfrac%7Bx-min(x)%7D%7Bmax(x)-min(x)%7D">
 
 ## 4.2. Training
 
@@ -100,11 +72,11 @@ For forecasting the NG supply amount from the time series dataset, MLP with LSTM
 
 To evaluate this network model, Mean Absolute Error(MAE) and Root Mean Squared Error(RMSE) are applied. The MAE measures the average magnitude of the errors and is presented by the formula as following, where n is the number of errors, <img src="https://render.githubusercontent.com/render/math?math=y_i"> is the <img src="https://render.githubusercontent.com/render/math?math=i%5E%7Bth%7D"> true value, and <img src="https://render.githubusercontent.com/render/math?math=%5Chat%7By_i%7D"> is the <img src="https://render.githubusercontent.com/render/math?math=i%5E%7Bth%7D"> predicted value.
 
-<img src="https://render.githubusercontent.com/render/math?math=MAE%20%3D%20%5Cfrac%7B%5CSigma_%7Bi%3D1%7D%5En%7Cy_i-%5Chat%7By_i%7D%7C%7D%7Bn%7D">
+<img src="https://render.githubusercontent.com/render/math?math=%5CLarge%20MAE%20%3D%20%5Cfrac%7B%5CSigma_%7Bi%3D1%7D%5En%7Cy_i-%5Chat%7By_i%7D%7C%7D%7Bn%7D">
 
 Also, The RMSE is used for observing the differences between the real dataset and prediction values. The following is the formula of RMSE, and each value of this is same for MAE.
 
-<img src="https://render.githubusercontent.com/render/math?math=RMSE%20%3D%20%5Csqrt%7B%5Cfrac%7B%5CSigma_%7Bi%3D1%7D%5En(y_i-%5Chat%7By_i%7D)%5E2%7D%7Bn%7D%7D">
+<img src="https://render.githubusercontent.com/render/math?math=%5CLarge%20RMSE%20%3D%20%5Csqrt%7B%5Cfrac%7B%5CSigma_%7Bi%3D1%7D%5En(y_i-%5Chat%7By_i%7D)%5E2%7D%7Bn%7D%7D">
 
 ## 4.4. Prediction
 
@@ -184,15 +156,17 @@ Out of the five scenarios in total, the second and third have smaller RMSE, and 
 
 ## 6. Benchmarks
 
-For a benchmark, the Cloudmesh StopWatch and Benchmark [^10] are used to measure the performance of the program. The time spent on data load, data preprocessing, network model compile, training, and prediction was separately measured, and the overall time for execution of all scenarios is around 77 seconds. It can be seen that The training time for the fourth scenario is the longest and the one for the fifth scenario is the shortest.
+For a benchmark, the Cloudmesh StopWatch and Benchmark [^15] are used to measure the performance of the program. The time spent on data load, data preprocessing, network model compile, training, and prediction was separately measured, and the overall time for execution of all scenarios is around 77 seconds. It can be seen that The training time for the fourth scenario is the longest and the one for the fifth scenario is the shortest.
 
-![Figure 13](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/benchmark_all.png)
+![Figure 13](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/benchmark_all.PNG)
 
 **Figure 13:** Benchmarks
 
 ## 7. Conclusion
 
-It can be seen that simplification of factors that have a significant impact shows better efficiency than combining various factors. Simply considering, the cold weather requires more heating, which increases the demand for NG. In addition, when there is a lot of precipitation, the weather is warm or hot, and in contrast, when it is cold, the precipitation is relatively cold. It can be seen that these seasonal elements show relatively high consistency when used as datasets, and that predictions are more effective when combined. However, the last part of the scenario used the dataset combined with various factors tends to match real data, and the results might vary if a dataset with a longer period of time is used and the ratio of training set is adjusted.
+Through this project, it can be seen that simplification of factors that have a significant impact shows better efficiency than combining various factors. Simply considering, the cold weather requires more heating, which increases the demand for NG. In addition, when there is a lot of precipitation, the weather is warm or hot, and in contrast, when it is cold, the precipitation is relatively cold. It can be seen that these seasonal elements show relatively high consistency when used as datasets, and that predictions are more effective when combined. However, the last part of the scenario used the dataset combined with various factors tends to match real data, and the results might vary if a dataset with a longer period of time is used and the ratio of training set is adjusted.
+
+In this project, forecasting NG demand and supply is carried out using external factors. As mentioned earlier, South Korea relies on imports for most of its energy resources. Market conditions may also be volatile depending on the government's energy policy direction. Therefore, efficient energy demand forecasts will have to be constantly supplemented and developed. In addition, it is believed that advanced forms of NG-related research should be conducted using various data and more professional analysis.
 
 ## 8. Acknowledgments
 
@@ -212,21 +186,32 @@ The author would like to thank Dr. Gregor von Laszewski for his invaluable feedb
 [^4]: NG wholesale charges, [Online resource] 
       <https://www.kogas.or.kr:9450/portal/contents.do?key=2026>
 
-[^5]: NG supply dataset, [Online resource], 
+[^5]: Natural gas explained, [Online resource], 
+      <https://www.eia.gov/energyexplained/natural-gas/factors-affecting-natural-gas-prices.php>, Aug, 2020
+
+[^6]: A. Khotanzad and H. Elragal, "Natural gas load forecasting with combination of adaptive neural networks," IJCNN'99. International Joint Conference on Neural Networks. Proceedings (Cat. No.99CH36339), 1999, pp. 4069-4072 vol.6, doi: 10.1109/IJCNN.1999.830812.
+
+[^7]: A. Khotanzad, H. Elragal and T. . -L. Lu, "Combination of artificial neural-network forecasters for prediction of natural gas consumption," in IEEE Transactions on Neural Networks, vol. 11, no. 2, pp. 464-473, March 2000, doi: 10.1109/72.839015.
+
+[^8]: M. Akpinar, M. F. Adak and N. Yumusak, "Forecasting natural gas consumption with hybrid neural networks — Artificial bee colony," 2016 2nd International Conference on Intelligent Energy and Power Systems (IEPS), 2016, pp. 1-6, doi: 10.1109/IEPS.2016.7521852.
+
+[^9]: A. Anagnostis, E. Papageorgiou, V. Dafopoulos and D. Bochtis, "Applying Long Short-Term Memory Networks for natural gas demand prediction," 2019 10th International Conference on Information, Intelligence, Systems and Applications (IISA), 2019, pp. 1-7, doi: 10.1109/IISA.2019.8900746.
+
+[^10]: NG supply dataset, [Online resource], 
       <https://www.data.go.kr/data/15049904/fileData.do>, Apr, 2020
 
-[^6]: Regional climate dataset, [Online resource]
+[^11]: Regional climate dataset, [Online resource]
       <https://data.kma.go.kr/climate/RankState/selectRankStatisticsDivisionList.do?pgmNo=179>
 
-[^7]: Crude oil orice dataset, [Online resource]
+[^12]: Crude oil orice dataset, [Online resource]
       <https://www.petronet.co.kr/main2.jsp>
 
-[^8]: Bituminous coal price dataset, [Online resource]
+[^13]: Bituminous coal price dataset, [Online resource]
       <https://www.kores.net/komis/price/mineralprice/ironoreenergy/pricetrend/baseMetals.do?mc_seq=3030003&mnrl_pc_mc_seq=506>
 
-[^9] Won-Dollar exchange rate dateset, [Online resource]
+[^14]: Won-Dollar exchange rate dateset, [Online resource]
       <http://ecos.bok.or.kr/flex/EasySearch.jsp?langGubun=K&topCode=022Y013>
 
-[^10]: Gregor von Laszewski, Cloudmesh StopWatch and Benchmark from the Cloudmesh Common Library, [GitHub] 
+[^15]: Gregor von Laszewski, Cloudmesh StopWatch and Benchmark from the Cloudmesh Common Library, [GitHub] 
       <https://github.com/cloudmesh/cloudmesh-common>
 
