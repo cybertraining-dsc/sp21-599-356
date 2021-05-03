@@ -34,11 +34,9 @@ South Korea relies on foreign imports for 92.8 percent of its energy resources a
 
 The wholesale charges consist of raw material costs (LNG introduction and incidental costs) and gas supply costs [^4]. Therefore, the forecasting NG demand/supply will not only help establish an optimized mid-to-long-term plan for the introduction of LNG, but also stable NG supply and economic effects.
 
-
+Explain the factors affecting gas demand: climate(temperature, precipitation), the other energy price(crude oil, coal), exchange rate(USD)
 
 * <https://github.com/cybertraining-dsc/hid-example/blob/main/project/index.md>
-
-Here comes a convincing introduction to the problem
 
 ## 2. Related Work
 
@@ -107,14 +105,13 @@ Remember this is not a powerpoint presentation, but a report so we recommend
 
 ## 3. Datasets
 
-There is an NG supply dataset[^5] from a public data portal in South Korea. It includes four years from 2016 to 2019 of regional monthly NG supply in the nine different cities of South Korea. In addition, climate data[^6] for the same period can be obtained from the Korea Meteorological Administration. In the case of metropolitan cities such as Busan, the climate data for the city are used, while for areas larger than cities(e.g., Gyeonggi), the data for areas with supply stations are used. Similarly, data on the price of four types of crude oil[^7] and various types of coal price datasets per month[^8] are also available through corresponding agencies. Finally, the Won-Dollar exchange rate dataset[^9] with the same period is used.
+There is an NG supply dataset[^5] from a public data portal in South Korea. It includes four years from 2016 to 2019 of regional monthly NG supply in the nine different cities of South Korea. In addition, climate data such as temperature and precipitation[^6] for the same period can be obtained from the Korea Meteorological Administration. Similarly, data on the price of four types of crude oil[^7] and various types of coal price datasets per month[^8] are also available through corresponding agencies. Finally, the Won-Dollar exchange rate dataset[^9] with the same period is used.
 
-Datasets can be huge and GitHub has limited space. Only very small datasets should be stored in GitHub.
-However, if the data is publicly available you program must contain a download function instead that you customize. 
-Write it using pythons `request`. You will get point deductions if you check-in data sets that are large and do not use
-the download function.
+As mentioned above, each dataset has monthly information. It is regionally separated or combined according to the test scenario. For example, the NG supply dataset has nine different cities. One column of cities is split from the original dataset and merged with another regional dataset like temperature or precipitation. On the other hand, in the case of the test scenario, where a national dataset is needed, the summation value of all column data is created and used for it.
 
-## 4. Method
+The dataset is applied differently for each scenario. In the scenario one, all dataset such as crude oil price, coal price, exchange rate, and regional temperature and precipitation are merged with regional dataset, especially seoul city. For the scenario two, all climate dataset are used with regional dataset. Only temperature dataset is utilized with regional dataset in the scenario three. In addition, in the scenario four, all cases are the same as in the scenario one, but the timesteps are changed to two months. Finally, national dataset is used for the scenario five. 
+
+## 4. Methodology
 
 ## 4.1. Min-Max scaling
 
@@ -142,6 +139,32 @@ Since the datasets used for the training are normalized between 0 and 1, they ge
 
 ## 5. Result
 
+In all scenarios, main variables such as dropout, learning rate and epochs starts under the same conditions and are 0.1, 0.0005, and 100 in order. These variables are adjusted according to the circumstances and comprehensively compared at the end of this part. 
+
+## 5.1 Scenario one(regional dataset)
+
+The final MAE of train set is around 0.05 and the one of test set is around 0.19. The RMSE between real data and predicted data is around 227018. The predictive graph tends to deviate a lot at the beginning of epochs, but it shows quite a bit of agreement at the end of epochs.
+
+## 5.2 Scenario two(regional climate dataset)
+
+The final MAE of train set is around 0.10 and the one of test set is around 0.14. The RMSE between real data and predicted data is around 185205. Although the predictive graph still differ compared to real graph, it shows similar trends in shape.
+
+## 5.3 Scenario three(regional temperature dataset)
+
+The final MAE of train set is around 0.13 and the one of test set is around 0.14. The RMSE between real data and predicted data is around 207585. While the tendency to follow high and low seems similar, but changes in the middle seem to be misleading.
+
+## 5.4 Scenario four(applying timesteps)
+
+The final MAE of train set is around 0.06 and the one of test set is around 0.30. The RMSE between real data and predicted data is around 340843. Out of all scenarios, the predictive graph shows to have the most differences. However, in the last part, there is a somewhat similar tendency.
+
+## 5.5 Scenario five(national dataset)
+
+The final MAE of train set is around 0.03 and the one of test set is around 0.14. The RMSE between real data and predicted data is around 587340. the largest RMSE value is the result, but direct comparisons are not possible because the baseline volume is different from other scenarios. Although the predictive graph shows differences, it tends to be similar to the results in the scenario two. 
+
+## 5.6 Overall
+
+
+
 ## 6. Benchmark
 
 Your project must include a benchmark. The easiest is to use cloudmesh-common [^2]
@@ -152,7 +175,7 @@ A convincing but not fake conclusion should summarize what the conclusion of the
 
 ## 8. Acknowledgments
 
-Please add acknowledgments to all that contributed or helped on this project.
+The author would like to thank Dr. Gregor von Laszewski for his invaluable feedback on this paper, and Dr. Geoffrey Fox for sharing his expertise in Deep Learning and AI applications throughout this course.
 
 ## 9. References
 
