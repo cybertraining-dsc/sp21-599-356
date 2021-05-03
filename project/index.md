@@ -18,13 +18,17 @@ Baekeun Park, [sp21-599-356](https://github.com/cybertraining-dsc/sp21-599-356/)
 
 In this project, the Natural Gas(NG) supply amount of South Korea, which relies on imports for much of its energy sources, is forecasted using deep learning methods. Datasets from various fields such as weather and prices of other energy resources are used as training datasets through data-preprocessing and are trained using the multi-layer perceptron(MLP) with long short-term memory(LSTM), using Tensorflow. In addition, a combination of the dataset from various factors is used for training scenario-wise, and the results are compared and analyzed.
 
+Contents
+
+{{< table_of_contents >}}
+
 {{% /pageinfo %}}
 
-**Keywords:** Natural Gas, forecasting, MLP with LSTM, Tensorflow, various dataset. 
+**Keywords:** Natural Gas, forecasting, MLP with LSTM, Tensorflow, various dataset.
 
 ## 1. Introduction
 
-South Korea relies on foreign imports for 92.8 percent of its energy resources as of the first half of 2020 [^1]. Among the energy resources, the Korea Gas Corporation(KOGAS) imports Liquified Natural Gas(LNG) from around world and supplies it to power generation plants, gas-utility companies and city gas companies throughout the country [^2]. It produces and supplies NG, in order to ensure stable gas supply for the nation. And it operates LNG storage tanks at LNG acquisition bases which can store LNG during the season when city gas demand is low and replenish LNG during winter when demand is higher than supply [^3]. 
+South Korea relies on foreign imports for 92.8 percent of its energy resources as of the first half of 2020 [^1]. Among the energy resources, the Korea Gas Corporation(KOGAS) imports Liquified Natural Gas(LNG) from around world and supplies it to power generation plants, gas-utility companies and city gas companies throughout the country [^2]. It produces and supplies NG, in order to ensure stable gas supply for the nation. And it operates LNG storage tanks at LNG acquisition bases which can store LNG during the season when city gas demand is low and replenish LNG during winter when demand is higher than supply [^3].
 
 The wholesale charges consist of raw material costs (LNG introduction and incidental costs) and gas supply costs [^4]. Therefore, the forecasting NG demand/supply will not only help establish an optimized mid-to-long-term plan for the introduction of LNG, but also stable NG supply and economic effects.
 
@@ -44,7 +48,7 @@ There is an NG supply dataset [^10] from a public data portal in South Korea. It
 
 As mentioned above, each dataset has monthly information. It is regionally separated or combined according to the test scenario. For example, the NG supply dataset has nine different cities. One column of cities is split from the original dataset and merged with another regional dataset like temperature or precipitation. On the other hand, in the case of the test scenario, where a national dataset is needed, the summation value of all column data is created and used for it.
 
-The dataset is applied differently for each scenario. In the scenario one, all dataset such as crude oil price, coal price, exchange rate, and regional temperature and precipitation are merged with regional dataset, especially seoul city. For the scenario two, all climate dataset are used with regional dataset. Only temperature dataset is utilized with regional dataset in the scenario three. In addition, in the scenario four, all cases are the same as in the scenario one, but the timesteps are changed to two months. Finally, national dataset is used for the scenario five. 
+The dataset is applied differently for each scenario. In the scenario one, all dataset such as crude oil price, coal price, exchange rate, and regional temperature and precipitation are merged with regional dataset, especially seoul city. For the scenario two, all climate dataset are used with regional dataset. Only temperature dataset is utilized with regional dataset in the scenario three. In addition, in the scenario four, all cases are the same as in the scenario one, but the timesteps are changed to two months. Finally, national dataset is used for the scenario five.
 
 ![Figure 1](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/each_factors.png)
 
@@ -82,7 +86,7 @@ Since the datasets used for the training are normalized between 0 and 1, they ge
 
 ## 5. Result
 
-In all scenarios, main variables such as dropout, learning rate, and epochs are fixed under the same conditions and are 0.1, 0.0005, and 100 in order. In scenarios one, two, three, and five, the training set is applied as twelve months, and in scenario four, next month's prediction comes from the previous two months dataset. Each scenario shows individual results and is comprehensively compared at the end of this part. 
+In all scenarios, main variables such as dropout, learning rate, and epochs are fixed under the same conditions and are 0.1, 0.0005, and 100 in order. In scenarios one, two, three, and five, the training set is applied as twelve months, and in scenario four, next month's prediction comes from the previous two months dataset. Each scenario shows individual results and is comprehensively compared at the end of this part.
 
 ## 5.1 Scenario one(regional dataset)
 
@@ -134,7 +138,7 @@ The final MAE of train set is around 0.06 and the one of test set is around 0.30
 
 ## 5.5 Scenario five(national dataset)
 
-The final MAE of train set is around 0.03 and the one of test set is around 0.14. The RMSE between real data and predicted data is around 587340. the largest RMSE value is the result, but direct comparisons are not possible because the baseline volume is different from other scenarios. Although the predictive graph shows differences, it tends to be similar to the results in the scenario two. 
+The final MAE of train set is around 0.03 and the one of test set is around 0.14. The RMSE between real data and predicted data is around 587340. the largest RMSE value is the result, but direct comparisons are not possible because the baseline volume is different from other scenarios. Although the predictive graph shows differences, it tends to be similar to the results in the scenario two.
 
 ![Figure 11](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/Error_For_SenarioFive.png)
 
@@ -181,7 +185,7 @@ The author would like to thank Dr. Gregor von Laszewski for his invaluable feedb
 [^3]: LNG production phase, [Online resource]
       <https://www.kogas.or.kr:9450/portal/contents.do?key=2014>
 
-[^4]: NG wholesale charges, [Online resource] 
+[^4]: NG wholesale charges, [Online resource]
       <https://www.kogas.or.kr:9450/portal/contents.do?key=2026>
 
 [^5]: Natural gas explained, [Online resource], 
