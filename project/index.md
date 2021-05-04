@@ -16,7 +16,10 @@ Baekeun Park, [sp21-599-356](https://github.com/cybertraining-dsc/sp21-599-356/)
 
 ## Abstract
 
-Natural Gas(NG) is one of the valuable ones among the other energy resources. It is used as a power source for industries, homes and businesses, and heating and cooling energy sources. It is also used as a raw material for power plants to generate electricity. Therefore, diverse purposes of NG demand arise in the different fields. In this project, the NG supply amount of South Korea, which relies on imports for much of its energy sources, is forecasted by using deep learning methods. Datasets from various fields such as weather and prices of other energy resources are used as training datasets through data-preprocessing and are trained using the multi-layer perceptron(MLP) with long short-term memory(LSTM), using Tensorflow. In addition, a combination of the dataset from various factors is used for training scenario-wise, and the results are compared and analyzed.
+Natural Gas(NG) is one of the valuable ones among the other energy resources. It is used as a heating source for homes and businesses through city gas companies and utilized as a raw material for power plants to generate electricity. Through this, it can be seen that various purposes of NG demand arise in the different fields. In addition, it is essential to identify accurate demand for NG as there is growing volatility in energy demand depending on the direction of the government's environmental policy.
+
+This project focuses on building the model of forecasting the NG demand and supply amount of South Korea, which relies on imports for much of its energy sources. Datasets for training include various fields such as weather and prices of other energy resources, which are open-source.
+Also, those are trained by using deep learning methods such as the multi-layer perceptron(MLP) with long short-term memory(LSTM), using Tensorflow. In addition, a combination of the dataset from various factors is created by using pandas for training scenario-wise, and the results are compared by changing the variables and analyzed by different viewpoints.
 
 Contents
 
@@ -28,13 +31,13 @@ Contents
 
 ## 1. Introduction
 
-South Korea relies on foreign imports for 92.8 percent of its energy resources as of the first half of 2020 [^1]. Among the energy resources, the Korea Gas Corporation(KOGAS) imports Liquified Natural Gas(LNG) from around world and supplies it to power generation plants, gas-utility companies and city gas companies throughout the country [^2]. It produces and supplies NG, in order to ensure stable gas supply for the nation. And it operates LNG storage tanks at LNG acquisition bases which can store LNG during the season when city gas demand is low and replenish LNG during winter when demand is higher than supply [^3].
+South Korea relies on imports for 92.8 percent of its energy resources as of the first half of 2020 [^1]. Among the energy resources, the Korea Gas Corporation(KOGAS) imports Liquified Natural Gas(LNG) from around the world and supplies it to power generation plants, gas-utility companies, and city gas companies throughout the country [^2]. It produces and supplies NG in order to ensure a stable gas supply for the nation. Moreover, it operates LNG storage tanks at LNG acquisition bases, storing LNG during the season when city gas demand is low and replenish LNG during winter when demand is higher than supply [^3].
 
-The wholesale charges consist of raw material costs (LNG introduction and incidental costs) and gas supply costs [^4]. Therefore, the forecasting NG demand/supply will not only help establish an optimized mid-to-long-term plan for the introduction of LNG, but also stable NG supply and economic effects.
+The wholesale charges consist of raw material costs (LNG introduction and incidental costs) and gas supply costs [^4]. Therefore, the forecasting NG demand/supply will help establish an optimized mid-to-long-term plan for the introduction of LNG and stable NG supply and economic effects.
 
-The factors which influence to NG demand include weather, economic conditions, and petroleum prices. The winter weather strongly influences NG demand and the hot summer weather can increase electric power demand for NG. In addition, some large-volume fuel consumers such as power plants and iron, steel, and paper mills can switch between NG, coal, and petroleum, depending on the cost of each fuel [^5].
+The factors which influence NG demand include weather, economic conditions, and petroleum prices. The winter weather strongly influences NG demand, and the hot summer weather can increase electric power demand for NG. In addition, some large-volume fuel consumers such as power plants and iron, steel, and paper mills can switch between NG, coal, and petroleum, depending on the cost of each fuel [^5].
 
-Therefore, some indicators related to weather, economic conditions and price of other energy resources can be used for this project.
+Therefore, some indicators related to weather, economic conditions, and the price of other energy resources can be used for this project.
 
 ## 2. Related Work
 
@@ -42,13 +45,13 @@ Khotanzad and Elragal (1999) proposed a two-stage system with the first stage co
 
 ## 3. Datasets
 
-As described, weather datasets like temperature and precipitation, price datasets of other energy resources like crude oil and coal, and economic indicators like exchange rate are used in this project for forecasting NG demand.
+As described, weather datasets like temperature and precipitation, price datasets of other energy resources like crude oil and coal, and economic indicators like exchange rate are used in this project for forecasting NG demand and supply.
 
 There is an NG supply dataset [^10] from a public data portal in South Korea. It includes four years from 2016 to 2019 of regional monthly NG supply in the nine different cities of South Korea. In addition, climate data such as temperature and precipitation [^11] for the same period can be obtained from the Korea Meteorological Administration. Similarly, data on the price of four types of crude oil [^12] and various types of coal price datasets per month [^13] are also available through corresponding agencies. Finally, the Won-Dollar exchange rate dataset [^14] with the same period is used.
 
-As mentioned above, each dataset has monthly information. It is regionally separated or combined according to the test scenario. For example, the NG supply dataset has nine different cities. One column of cities is split from the original dataset and merged with another regional dataset like temperature or precipitation. On the other hand, in the case of the scenario, where a national dataset is needed, the summation value of all column data is created and used for it.
+As mentioned above, each dataset has monthly information and also has average values instead of the NG supply dataset. It is regionally separated or combined according to the test scenario. For example, the NG supply dataset has nine different cities. One column of cities is split from the original dataset and merged with another regional dataset like temperature or precipitation. On the other hand, each regional value's summation is utilized in a scenario where a national dataset is needed.
 
-The dataset is applied differently for each scenario. In the scenario one, all dataset such as crude oil price, coal price, exchange rate, and regional temperature and precipitation are merged with regional dataset, especially seoul city. For the scenario two, all climate dataset are used with regional dataset. Only temperature dataset is utilized with regional dataset in the scenario three. In addition, in the scenario four, all cases are the same as in the scenario one, but the timesteps are changed to two months. Finally, national dataset is used for the scenario five.
+The dataset is applied differently for each scenario. In scenario one, all datasets such as crude oil price, coal price, exchange rate, and regional temperature and precipitation are merged with regional dataset, especially Seoul. For scenario two, all climate datasets are used with the regional dataset. Only temperature dataset is utilized with regional dataset in scenario three. In addition, in scenario four, all cases are the same as in scenario one, but the timesteps are changed to two months. Finally, the national dataset is used for scenario five.
 
 ![Figure 1](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/each_factors.png)
 
@@ -64,7 +67,7 @@ In this project, all datasets are rescaled between 0 and 1 by Min-Max scaling, o
 
 ## 4.2. Training
 
-For forecasting the NG supply amount from the time series dataset, MLP with LSTM network model is designed by using Tensorflow. The first and second LSTM layers have 100 units, and a total of 3 layers of MLP follow it. Each MLP layer has 100 neurons instead of the final layer, where its neuron is 1. In addition, dropout was designated to prevent overfitting of data, Adam is used as an optimizer, and Rectified Linear Unit(Relu) as an activation function.
+For forecasting the NG supply amount from the time series dataset, MLP with LSTM network model is designed by using Tensorflow. The first and second LSTM layers have 100 units, and a total of 3 layers of MLP follow it. Each MLP layer has 100 neurons instead of the final layer, where its neuron is 1. In addition, dropout was designated to prevent overfitting of data, the Adam is used as an optimizer, and the Rectified Linear Unit(ReLU) as an activation function.
 
 ![Figure 2](https://raw.githubusercontent.com/cybertraining-dsc/sp21-599-356/main/project/images/structure_of_network.png)
 
@@ -72,17 +75,17 @@ For forecasting the NG supply amount from the time series dataset, MLP with LSTM
 
 ## 4.3. Evaluation
 
-To evaluate this network model, Mean Absolute Error(MAE) and Root Mean Squared Error(RMSE) are applied. The MAE measures the average magnitude of the errors and is presented by the formula as following, where n is the number of errors, <img src="https://render.githubusercontent.com/render/math?math=y_i"> is the <img src="https://render.githubusercontent.com/render/math?math=i%5E%7Bth%7D"> true value, and <img src="https://render.githubusercontent.com/render/math?math=%5Chat%7By_i%7D"> is the <img src="https://render.githubusercontent.com/render/math?math=i%5E%7Bth%7D"> predicted value.
+Mean Absolute Error(MAE) and Root Mean Squared Error(RMSE) are applied for this time series dataset to evaluate this network model. The MAE measures the average magnitude of the errors and is presented by the formula as following, where n is the number of errors, <img src="https://render.githubusercontent.com/render/math?math=y_i"> is the <img src="https://render.githubusercontent.com/render/math?math=i%5E%7Bth%7D"> true value, and <img src="https://render.githubusercontent.com/render/math?math=%5Chat%7By_i%7D"> is the <img src="https://render.githubusercontent.com/render/math?math=i%5E%7Bth%7D"> predicted value.
 
 <img src="https://render.githubusercontent.com/render/math?math=%5CLarge%20MAE%20%3D%20%5Cfrac%7B%5CSigma_%7Bi%3D1%7D%5En%7Cy_i-%5Chat%7By_i%7D%7C%7D%7Bn%7D">
 
-Also, The RMSE is used for observing the differences between the real dataset and prediction values. The following is the formula of RMSE, and each value of this is same for MAE.
+Also, The RMSE is used for observing the differences between the actual dataset and prediction values. The following is the formula of RMSE, and each value of this is the same for MAE.
 
 <img src="https://render.githubusercontent.com/render/math?math=%5CLarge%20RMSE%20%3D%20%5Csqrt%7B%5Cfrac%7B%5CSigma_%7Bi%3D1%7D%5En(y_i-%5Chat%7By_i%7D)%5E2%7D%7Bn%7D%7D">
 
 ## 4.4. Prediction
 
-Since the datasets used for the training are normalized between 0 and 1, they get converted again to a range of the ground truth values. From these rescaled datasets, it is possible to obtain the RMSE and compare the differences between a actual value and a predicted value.
+Since the datasets used for the training process are normalized between 0 and 1, they get converted to a range of the ground truth values again. From these rescaled datasets, it is possible to obtain the RMSE and compare the differences between the actual value and the predicted value.
 
 ## 5. Result
 
@@ -164,7 +167,6 @@ As the number of training data changes from 12 months to 24 months, the results 
 
 **Figure 14:** Total prediction results: 24 months training set
 
-
 ## 6. Benchmarks
 
 For a benchmark, the Cloudmesh StopWatch and Benchmark [^15] are used to measure the program's performance. The time spent on data load, data preprocessing, network model compile, training, and prediction was separately measured, and the overall time for execution of all scenarios is around 77 seconds. It can be seen that The training time for the fourth scenario is the longest and the one for the fifth scenario is the shortest.
@@ -175,7 +177,7 @@ For a benchmark, the Cloudmesh StopWatch and Benchmark [^15] are used to measure
 
 ## 7. Conclusion
 
-From the results of this project, it can be seen that simplifying factors that have a significant impact shows better efficiency than combining various factors. For example, NG consumption tends to increase for heating in the cold weather. In addition, there is a lot of precipitation in the warm or hot weather, on the contrary, there is relatively little precipitation in the cold weather. It can be seen that these seasonal elements show relatively high consistency for affecting prediction when those are used as training datasets. Also, the predictions are derived more effectively when the seasonal datasets are combined. 
+From the results of this project, it can be seen that simplifying factors that have a significant impact shows better efficiency than combining various factors. For example, NG consumption tends to increase for heating in the cold weather. In addition, there is a lot of precipitation in the warm or hot weather, on the contrary, there is relatively little precipitation in the cold weather. It can be seen that these seasonal elements show relatively high consistency for affecting prediction when those are used as training datasets. Also, the predictions are derived more effectively when the seasonal datasets are combined.
 
 However, in training set with 12 months duration, the last part of the scenario used the dataset combined with various factors, which seem to be not related to season, tends to match real data. Furthemore, when the training set is doubled on the same dataset, it can be seen that the differences between real and prediction graph is decreased than the result of smaller traing set. Based on this, it can be expected that the results could vary if a large amount of dataset with a longer period is used and the ratio of the training set is appropriately adjusted.
 
@@ -229,4 +231,3 @@ The author would like to thank Dr. Gregor von Laszewski for his invaluable feedb
 
 [^15]: Gregor von Laszewski, Cloudmesh StopWatch and Benchmark from the Cloudmesh Common Library, [GitHub] 
       <https://github.com/cloudmesh/cloudmesh-common>
-
