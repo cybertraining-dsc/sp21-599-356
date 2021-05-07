@@ -4,12 +4,6 @@
 [![Status](https://github.com/cybertraining-dsc/sp21-599-356/workflows/Status/badge.svg)](https://github.com/cybertraining-dsc/sp21-599-356/actions)
 Status: final, Type: Project
 
-* :o2: Author missing
-* :o2: Abstract should be defined by now
-* :o2: Refernces shoudl be defined by now
-* :o2: Introduction missing
-* :o2: Refernces missing
-
 Baekeun Park, [sp21-599-356](https://github.com/cybertraining-dsc/sp21-599-356/), [Edit](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/index.md)
 
 {{% pageinfo %}}
@@ -189,7 +183,11 @@ In this project, Forecasting NG demand and supply was carried out using various 
 
 The author would like to thank Dr. Gregor von Laszewski for his invaluable feedback, continued assistance, and suggestions on this paper, and Dr. Geoffrey Fox for sharing his expertise in Deep Learning and Artificial Intelligence applications throughout this Deep Learning Application: AI-First Engineering course offered in the Spring 2021 semester at Indiana University, Bloomington.
 
-## 9. References
+## 9. Source code
+
+The source code for all experiments and results can be found here as [ipynb link](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/code/Forecasting_NG_Demand_Supply.ipynb) and as [pdf link](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/code/Forecasting_NG_Demand_Supply.pdf).
+
+## 10. References
 
 [^1]: 2020 Monthly Energy Statistics, [Online resource]
       <http://www.keei.re.kr/keei/download/MES2009.pdf>, Sep. 2020
