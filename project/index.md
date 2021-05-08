@@ -7,7 +7,7 @@ Status: final, Type: Project
 Baekeun Park, [sp21-599-356](https://github.com/cybertraining-dsc/sp21-599-356/), [Edit](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/index.md)
 
 * Code:
-  * [Forecasting_NG_Demand_Supply.ipynb](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/code/Forecasting_NG_Demand_Supply.ipynb)  
+  * [Forecasting_NG_Demand_Supply.ipynb](https://github.com/cybertraining-dsc/sp21-599-356/blob/main/project/code/Forecasting_NG_Demand_Supply.ipynb)
 
 {{% pageinfo %}}
 
