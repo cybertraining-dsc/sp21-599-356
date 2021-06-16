@@ -2,7 +2,7 @@
 date: 2021-03-15
 title: Project: Forecasting Natural Gas Demand/Supply
 linkTitle: Energy Demand
-tags: ["project", "ai", ""]
+tags: ["project", "ai", "energy"]
 description: Project: Forecasting Natural Gas Demand/Supply
 author: Baekeun Park
 resources:
