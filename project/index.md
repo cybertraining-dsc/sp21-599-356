@@ -1,4 +1,14 @@
-# Project: Forecasting Natural Gas Demand/Supply
+---
+date: 2021-03-15
+title: Project: Forecasting Natural Gas Demand/Supply
+linkTitle: Energy Demand
+tags: ["project", "ai", ""]
+description: Project: Forecasting Natural Gas Demand/Supply
+author: Baekeun Park
+resources:
+- src: "**.{png,jpg}"
+  title: "Image #:counter"
+---
 
 [![Check Report](https://github.com/cybertraining-dsc/sp21-599-356/workflows/Check%20Report/badge.svg)](https://github.com/cybertraining-dsc/sp21-599-356/actions)
 [![Status](https://github.com/cybertraining-dsc/sp21-599-356/workflows/Status/badge.svg)](https://github.com/cybertraining-dsc/sp21-599-356/actions)
