@@ -12,6 +12,7 @@ resources:
   title: "Image #:counter"
 ---
 
+
 [![Check Report](https://github.com/cybertraining-dsc/sp21-599-356/workflows/Check%20Report/badge.svg)](https://github.com/cybertraining-dsc/sp21-599-356/actions)
 [![Status](https://github.com/cybertraining-dsc/sp21-599-356/workflows/Status/badge.svg)](https://github.com/cybertraining-dsc/sp21-599-356/actions)
 Status: final, Type: Project
