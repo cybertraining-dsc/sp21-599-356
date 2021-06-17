@@ -6,6 +6,7 @@ description: "Natural Gas(NG) is one of the valuable ones among the other energy
 Also, those are trained by using deep learning methods such as the multi-layer perceptron(MLP) with long short-term memory(LSTM), using Tensorflow. In addition, a combination of the dataset from various factors is created by using pandas for training scenario-wise, and the results are compared by changing the variables and analyzed by different viewpoints."
 tags: ["project", "ai", "energy"]
 author: Baekeun Park
+github_url: https://github.com/cybertraining-dsc/sp21-599-356/edit/main/project/index.md
 resources:
 - src: "**.{png,jpg}"
   title: "Image #:counter"
